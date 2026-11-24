@@ -1,0 +1,3805 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2f4bff" />
+    <title>Road Test Coach | Ahmed Fahad</title>
+    <meta
+      name="description"
+      content="Practise for the California DMV behind-the-wheel test: what to expect, the pre-drive check, rule drills and a full mock test with an examiner voice."
+    />
+    <meta property="og:title" content="California Road Test Coach" />
+    <meta
+      property="og:description"
+      content="One question at a time, like the examiner. Practise for the California DMV drive test."
+    />
+    <style>
+:root {
+  --page-bg: #f5f3ee;
+  --card: #fbfaf6;
+  --ink: #141414;
+  --ink-2: #3b3a36;
+  --muted: #6d6a62;
+  --rule: #d9d4c8;
+  --blue: #2f4bff;
+  --blue-ink: #1f35d6;
+  --gold: #c49a3e;
+  --gold-bg: #f3e6c4;
+  --good: #2e7d4f;
+  --good-bg: #e2f0e6;
+  --warn: #9a6a12;
+  --bad: #b3261e;
+  --bad-bg: #f7e1de;
+  --sans: "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --tap: 56px;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--ink);
+  border-top: 10px solid var(--blue);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- frame ---------- */
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  padding: 10px 0;
+  background: var(--page-bg);
+  border-bottom: 1px solid var(--rule);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  min-height: 44px;
+}
+#main:focus {
+  outline: none;
+}
+.brand svg {
+  width: 26px;
+  height: 20px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: default;
+  white-space: nowrap;
+}
+.topbar .chip {
+  order: 3;
+  flex-basis: 100%;
+  justify-content: flex-start;
+}
+.chip[data-state="working"]::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.chip[data-state="ready"] {
+  border-color: var(--blue);
+  color: var(--blue);
+  cursor: pointer;
+}
+.chip[data-state="ready"]::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--blue);
+}
+.chip[data-state="off"] {
+  color: var(--muted);
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar .chip {
+  order: 3;
+  flex-basis: 100%;
+  justify-content: flex-start;
+}
+.chip[data-state="working"]::before {
+    animation: none;
+  }
+}
+.voice-toggle {
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.voice-toggle[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--page-bg);
+}
+
+/* ---------- screens ---------- */
+.screen {
+  padding-top: 20px;
+}
+.kicker {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.title {
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.lede {
+  color: var(--ink-2);
+  margin-bottom: 20px;
+}
+.rule {
+  height: 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 22px 0;
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 14px;
+}
+.stack > * + * {
+  margin-top: 12px;
+}
+.row {
+  display: flex;
+  gap: 10px;
+}
+.row > * {
+  flex: 1;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 10px 16px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.btn.primary:hover {
+  background: var(--blue-ink);
+}
+.btn.ghost {
+  border-color: var(--rule);
+  background: transparent;
+  font-weight: 600;
+}
+.btn.quiet {
+  min-height: 44px;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn.again {
+  min-height: 72px;
+  font-size: 22px;
+  border-width: 3px;
+}
+.btn.again svg,
+.btn.mic svg {
+  width: 22px;
+  height: 22px;
+}
+.btn.mic[aria-pressed="true"] {
+  background: var(--gold-bg);
+  border-color: var(--gold);
+}
+
+/* ---------- menu ---------- */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--ink);
+}
+.menu li {
+  border-bottom: 1px solid var(--rule);
+}
+.menu button {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 68px;
+  padding: 10px 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.menu button:hover .menu-label {
+  color: var(--blue);
+}
+.menu-num {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--muted);
+}
+.menu-label {
+  display: block;
+  font-size: 19px;
+  font-weight: 700;
+}
+.menu-sub {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+}
+.menu-meta {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* ---------- form ---------- */
+label.field {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.input,
+textarea.input {
+  display: block;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: #fff;
+  font-size: 18px;
+}
+textarea.input {
+  min-height: 96px;
+  resize: vertical;
+}
+.results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-top: 0;
+  max-height: 340px;
+  overflow-y: auto;
+  background: #fff;
+}
+.results button {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  min-height: 56px;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.results button:hover,
+.results button:focus-visible {
+  background: var(--gold-bg);
+}
+.results strong {
+  display: block;
+}
+.results span {
+  font-size: 14px;
+  color: var(--muted);
+}
+.picked {
+  padding: 12px 14px;
+  border: 2px solid var(--blue);
+  background: #fff;
+}
+.choice-group {
+  display: flex;
+  gap: 8px;
+}
+.choice-group button {
+  flex: 1;
+  min-height: 52px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  font-weight: 700;
+  cursor: pointer;
+}
+.choice-group button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--page-bg);
+}
+
+/* ---------- cards ---------- */
+.card {
+  padding: 20px 18px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+}
+.card-title {
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.card p + p {
+  margin-top: 10px;
+}
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--rule);
+}
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+}
+.note {
+  padding: 12px 14px;
+  border-left: 4px solid var(--gold);
+  background: var(--gold-bg);
+  font-size: 16px;
+}
+.note.bad {
+  border-color: var(--bad);
+  background: var(--bad-bg);
+}
+
+/* ---------- question ---------- */
+.q-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.tag {
+  padding: 2px 8px;
+  border: 1px solid var(--rule);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.tag.critical {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+.tag.local {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.q-prompt {
+  font-size: 23px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.q-prompt.flash {
+  animation: flash 900ms ease-out;
+}
+@keyframes flash {
+  0% {
+    background: var(--gold-bg);
+  }
+  100% {
+    background: transparent;
+  }
+}
+.choices {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.choices li + li {
+  margin-top: 8px;
+}
+.choices button {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  text-align: left;
+  font-size: 17px;
+  cursor: pointer;
+}
+.choices button b {
+  font-family: var(--mono);
+}
+.choices button.right {
+  border-color: var(--good);
+  background: var(--good-bg);
+}
+.choices button.wrong {
+  border-color: var(--bad);
+  background: var(--bad-bg);
+}
+.verdict {
+  padding: 16px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+}
+.verdict[data-v="correct"] {
+  border-color: var(--good);
+}
+.verdict[data-v="partly"] {
+  border-color: var(--gold);
+}
+.verdict[data-v="incorrect"],
+.verdict[data-v="dontknow"] {
+  border-color: var(--bad);
+}
+.verdict-head {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.verdict[data-v="correct"] .verdict-head {
+  color: var(--good);
+}
+.verdict[data-v="partly"] .verdict-head {
+  color: var(--warn);
+}
+.verdict[data-v="incorrect"] .verdict-head,
+.verdict[data-v="dontknow"] .verdict-head {
+  color: var(--bad);
+}
+.model {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+.model-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.source {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.tally {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.tally span {
+  padding: 4px 8px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+}
+.tally .hot {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+.phase {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+/* ---------- lists ---------- */
+.plain {
+  margin: 0;
+  padding-left: 20px;
+}
+.plain li + li {
+  margin-top: 6px;
+}
+.bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bars li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.bars .bar-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 16px;
+}
+.bars .bar {
+  height: 6px;
+  margin-top: 6px;
+  background: var(--rule);
+}
+.bars .bar span {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+}
+.bars .bar span.low {
+  background: var(--bad);
+}
+.big-verdict {
+  font-size: 34px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.big-verdict.pass {
+  color: var(--good);
+}
+.big-verdict.fail {
+  color: var(--bad);
+}
+details.fold {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+details.fold summary {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+details.fold > div {
+  padding-bottom: 14px;
+}
+
+/* ---------- overlay sheet ---------- */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(20, 20, 20, 0.45);
+}
+.sheet {
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
+  border-top: 6px solid var(--blue);
+  background: var(--page-bg);
+}
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 30;
+  transform: translateX(-50%);
+  max-width: calc(100% - 32px);
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--page-bg);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ---------- footer ---------- */
+.footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.footer p + p {
+  margin-top: 6px;
+}
+
+@media (min-width: 700px) {
+  body {
+    font-size: 19px;
+  }
+  .title {
+    font-size: 34px;
+  }
+  .q-prompt {
+    font-size: 26px;
+  }
+}
+.chip[hidden] {
+  display: none;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <button class="brand" id="brand" type="button" aria-label="Road Test Coach, go to menu">
+          <svg viewBox="0 0 38 28" aria-hidden="true">
+            <rect x="1" y="3" width="36" height="24" fill="currentColor" />
+            <path d="M1 3l18 13L37 3" fill="none" stroke="#f5f3ee" stroke-width="3" />
+            <rect x="30" y="0" width="5" height="9" fill="currentColor" />
+          </svg>
+          <span>Road Test Coach</span>
+        </button>
+        <button class="chip" id="status" type="button" hidden aria-live="polite"></button>
+        <button class="voice-toggle" id="voice" type="button" aria-pressed="false">Voice off</button>
+      </header>
+
+      <main id="main" tabindex="-1"></main>
+
+      <footer class="footer">
+        <p>
+          <strong>Not affiliated with the California DMV.</strong> Practice only. Sample routes are
+          unofficial; the examiner chooses the route on the day. Always follow the official
+          <a href="https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/" target="_blank" rel="noopener"
+            >California Driver Handbook</a
+          >.
+        </p>
+        <p>Your progress is saved on this device only.</p>
+      </footer>
+    </div>
+
+    <script type="application/json" id="bank-data">
+{
+  "version": 1,
+  "sources": {
+    "handbook": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/",
+    "testing": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/the-testing-process/",
+    "laws": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/laws-and-rules-of-the-road/",
+    "sharing": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/laws-and-rules-of-the-road-cont1/",
+    "lanes": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/navigating-the-roads/",
+    "parking": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/navigating-the-roads-cont1/",
+    "safe": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/safe-driving/",
+    "speed": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/safe-driving-cont2/",
+    "appointments": "https://www.dmv.ca.gov/portal/appointments/select-appointment-type/"
+  },
+  "categories": {
+    "test-day": "Test day rules",
+    "pre-drive": "Pre-drive checklist",
+    "four-way": "Four-way stops",
+    "signals": "Lights and signals",
+    "pedestrians": "Pedestrians and cyclists",
+    "observation": "Head checks and mirrors",
+    "lanes": "Lanes, turns and spacing",
+    "speed": "Speed and following distance",
+    "railroad": "Railroad crossings",
+    "special": "Special situations",
+    "maneuvers": "Lot, pull-over and backing"
+  },
+  "expect": [
+    {
+      "id": "book",
+      "title": "Book the test",
+      "lines": [
+        "Book a **Behind-the-Wheel Drive Test** at dmv.ca.gov.",
+        "Adults 18 and over can book as soon as they hold a permit.",
+        "Slots fill fast. Check nearby offices too, and recheck every day for cancellations."
+      ],
+      "source": "appointments"
+    },
+    {
+      "id": "bring",
+      "title": "What to bring",
+      "lines": [
+        "1. Your instruction permit.",
+        "2. A California-licensed driver, 18 or older. They drive you there and back. A permit holder cannot drive alone.",
+        "3. A safe car.",
+        "4. Proof of insurance and registration for that car."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "car-rules",
+      "title": "Car rules",
+      "lines": [
+        "No donut spare tire.",
+        "All lights, turn signals, brake lights and the horn must work.",
+        "Rental car? Your name must be on the contract, and it must allow drive tests.",
+        "Driver-assist features must be **off**: lane keep, adaptive cruise, auto park."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "check-in",
+      "title": "Check-in",
+      "lines": [
+        "Go to the window first. Then wait in your car in the test lane.",
+        "The examiner checks the car, then asks you to show the controls.",
+        "Miss 4 or more of the control items and the test ends before you drive."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "the-drive",
+      "title": "The drive",
+      "lines": [
+        "About **15 to 20 minutes**.",
+        "Residential and business streets. Turns at lights and stop signs. Lane changes.",
+        "Pulling over to the curb and backing up.",
+        "Possibly a short stretch of freeway.",
+        "The examiner chooses the route on the day."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "scoring",
+      "title": "How you pass",
+      "lines": [
+        "You need all three:",
+        "1. No more than **3 errors** on pre-drive items 9 to 14.",
+        "2. **Zero** critical driving errors. One is an automatic fail.",
+        "3. No more than **15 errors** on the scored driving."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "after",
+      "title": "After the test",
+      "lines": [
+        "**Pass:** you get an interim paper license that day. The card comes by mail in a few weeks.",
+        "**Fail:** you get a score sheet with comments. Read it carefully. It tells you exactly what to fix.",
+        "The application fee covers three attempts."
+      ],
+      "source": "testing"
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "attempt-1",
+      "title": "Attempt 1: failed",
+      "lines": [
+        "Critical error: **disobeyed traffic signal**.",
+        "At a four-way flashing red, the driver stopped correctly, then turned left while cars that arrived first were still waiting.",
+        "A four-way flashing red works **exactly** like a four-way stop.",
+        "Also marked: several traffic-check errors at intersections and turns, and the passenger mirror clipped a trash bin at the curb."
+      ]
+    },
+    {
+      "id": "attempt-2",
+      "title": "Attempt 2: passed with 14 errors",
+      "lines": [
+        "Fifteen are allowed. That was one away from failing.",
+        "The examiner's only written note: **look over your shoulder** for lane changes and backing.",
+        "Most marks were again traffic checks at intersections, stops and turns."
+      ]
+    },
+    {
+      "id": "takeaways",
+      "title": "What to take from it",
+      "lines": [
+        "1. Wait your turn at every four-way.",
+        "2. Make head checks huge and obvious, every time.",
+        "3. Keep an arm's length from bins and parked cars.",
+        "4. Know flashing red, flashing yellow and the flashing yellow arrow cold."
+      ]
+    }
+  ],
+  "vehicleCheck": [
+    "Driver window opens",
+    "Windshield clear, no big cracks",
+    "Mirrors (at least two, one on the left)",
+    "Turn signals, front and back",
+    "Brake lights, left and right",
+    "Tires (no donut spare)",
+    "Foot brake",
+    "Horn",
+    "Passenger door opens",
+    "Glove box opens",
+    "Seat belts",
+    "Head restraints",
+    "No driver-assist in use, no recording devices"
+  ],
+  "predriveTips": [
+    "Practise these in the exact car you will test in, until each takes under 2 seconds.",
+    "If the gear selector has an **S** mode (sport or sequential), leave it in **D** for the whole test.",
+    "Memory line for items 9 to 14: **B-A-W-D-H-H** = Brake, Arms, Wipers, Defrost, Hazards, Headlights."
+  ],
+  "predrive": [
+    {
+      "id": "pd-parking-brake",
+      "item": 9,
+      "label": "Parking brake",
+      "locate": "Set the parking brake, then release it. Where is it in your car?",
+      "howTo": "It could be a hand lever between the seats (press the button, push down to release), a small pedal by your left foot, or an electronic switch marked P in a circle (pull to set; foot on the brake and push to release). A dashboard light confirms it.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "The examiner says: set your parking brake, then release it. Talk me through it.",
+      "modelAnswer": "Find the parking brake (lever, foot pedal or P switch), set it and point out the dashboard light, then release it the right way for that car.",
+      "keyPoints": ["set the parking brake", "release it", "dashboard light confirms"],
+      "distractors": [
+        "Press the foot brake hard and hold it. That counts as the parking brake.",
+        "Shift into Park. The parking brake sets itself and does not need to be shown."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "pd-arm-left",
+      "item": 10,
+      "label": "Arm signal: left turn",
+      "locate": "Window down. Show me the arm signal for a left turn.",
+      "howTo": "Left arm out the window, straight out and level. Memory line: left is level.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me the arm signal for a left turn.",
+      "modelAnswer": "Left arm straight out the window, level with the ground.",
+      "keyPoints": ["left arm out the window", "straight out and level"],
+      "distractors": [
+        "Left arm out, elbow bent, hand pointing up.",
+        "Left arm out, elbow bent, hand pointing down."
+      ],
+      "followUp": "pd-arm-right",
+      "source": "testing"
+    },
+    {
+      "id": "pd-arm-right",
+      "item": 10,
+      "label": "Arm signal: right turn",
+      "locate": "Show me the arm signal for a right turn.",
+      "howTo": "Left arm out, elbow bent, hand pointing up. Memory line: right reaches up.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me the arm signal for a right turn.",
+      "modelAnswer": "Left arm out the window, elbow bent, hand pointing up.",
+      "keyPoints": ["left arm out", "elbow bent", "hand pointing up"],
+      "distractors": [
+        "Right arm out the passenger window, straight and level.",
+        "Left arm out, elbow bent, hand pointing down."
+      ],
+      "followUp": "pd-arm-stop",
+      "source": "testing"
+    },
+    {
+      "id": "pd-arm-stop",
+      "item": 10,
+      "label": "Arm signal: slow or stop",
+      "locate": "Show me the arm signal for slowing down or stopping.",
+      "howTo": "Left arm out, elbow bent, hand pointing down. Memory line: stop drops down.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me the arm signal for slowing down or stopping.",
+      "modelAnswer": "Left arm out the window, elbow bent, hand pointing down.",
+      "keyPoints": ["left arm out", "elbow bent", "hand pointing down"],
+      "distractors": [
+        "Left arm straight out and level, palm facing back.",
+        "Left arm out, elbow bent, hand pointing up."
+      ],
+      "followUp": "pd-arm-left",
+      "source": "testing"
+    },
+    {
+      "id": "pd-wipers",
+      "item": 11,
+      "label": "Windshield wipers",
+      "locate": "Turn on your windshield wipers. Where are they in your car?",
+      "howTo": "Usually the right-hand stalk. Push down one click for continuous. Pushing up often gives a single wipe only, which may not count.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Turn on your windshield wipers. How do you make them run, not just wipe once?",
+      "modelAnswer": "Use the wiper stalk (usually on the right) and push it down one click so they run continuously. Pushing up usually gives a single wipe.",
+      "keyPoints": ["wiper stalk", "push down for continuous", "up is a single wipe"],
+      "distractors": [
+        "Pull the stalk toward you. That sprays washer fluid, which is what the examiner wants.",
+        "Push the stalk up once. One wipe is enough to show they work."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "pd-defrost",
+      "item": 12,
+      "label": "Defroster",
+      "locate": "Show me your front and rear defroster. Which button is which?",
+      "howTo": "Front defrost is usually a curved windshield symbol with wavy arrows. Rear defrost is a rectangle with wavy arrows. Know both.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me the defroster. What are the two kinds and how do you tell them apart?",
+      "modelAnswer": "Front and rear. Front is the curved windshield symbol with wavy arrows; rear is the rectangle with wavy arrows.",
+      "keyPoints": ["front defroster", "rear defroster", "know which button is which"],
+      "distractors": [
+        "There is only one defroster. It is the air conditioning button.",
+        "The defroster is the recirculation button with the car and the arrow."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "pd-hazards",
+      "item": 13,
+      "label": "Emergency flashers",
+      "locate": "Turn on your hazard lights. Where is it in your car?",
+      "howTo": "The red triangle button, usually in the middle of the dashboard.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me your emergency flashers. What does the button look like?",
+      "modelAnswer": "The red triangle button, usually in the centre of the dash. Press it once on, once off.",
+      "keyPoints": ["red triangle button", "press to turn on and off"],
+      "distractors": [
+        "Push both turn signals at the same time.",
+        "The button with the headlight and three lines."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "pd-headlights",
+      "item": 14,
+      "label": "Headlights",
+      "locate": "Turn on your headlights. Now show me high beams.",
+      "howTo": "Usually the left stalk or a dial on the dash. High beams: push the stalk forward, or pull it to flash. Blue light on the dash confirms high beams.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Turn on your headlights, then show me the high beams.",
+      "modelAnswer": "Turn the headlight switch on (stalk or dial), then push the stalk forward for high beams. The blue dash light confirms high beams.",
+      "keyPoints": ["turn headlights on", "high beams", "blue light confirms high beams"],
+      "distractors": [
+        "Auto mode is enough. You never need to know where high beams are.",
+        "Turn on the fog lights. Those count as headlights on the test."
+      ],
+      "source": "testing"
+    }
+  ],
+  "items": [
+    {
+      "id": "checkin-bring",
+      "category": "test-day",
+      "severity": "tip",
+      "phase": "checkin",
+      "prompt": "Before we start. What did you need to bring today?",
+      "modelAnswer": "My permit, a licensed driver 18 or older who brought me, a safe car, and proof of insurance and registration.",
+      "keyPoints": ["instruction permit", "licensed driver 18 or older", "proof of insurance", "registration"],
+      "distractors": [
+        "Just my permit. The examiner provides everything else.",
+        "My permit and a passport photo. The car can be any car."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "checkin-assist",
+      "category": "test-day",
+      "severity": "critical",
+      "phase": "checkin",
+      "highRisk": true,
+      "prompt": "Your car has lane keep assist and adaptive cruise. Can you use them on the test?",
+      "modelAnswer": "No. Driver-assist features must be off for the whole test. Using them is an automatic fail.",
+      "keyPoints": ["no", "turn them off", "automatic fail if used"],
+      "distractors": [
+        "Yes, as long as you keep your hands on the wheel.",
+        "Only adaptive cruise, and only on the freeway part."
+      ],
+      "followUp": "checkin-camera",
+      "source": "testing"
+    },
+    {
+      "id": "checkin-camera",
+      "category": "test-day",
+      "severity": "points",
+      "phase": "checkin",
+      "prompt": "Can you use the backup camera when you reverse?",
+      "modelAnswer": "It can help, but it does not replace looking. Turn and look back over your right shoulder through the rear window the whole time you reverse.",
+      "keyPoints": ["camera does not replace looking", "look back over your right shoulder"],
+      "distractors": [
+        "Yes, the camera alone is fine. You do not need to turn around.",
+        "No, you must cover the screen or the test is cancelled."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "checkin-donut",
+      "category": "test-day",
+      "severity": "tip",
+      "phase": "checkin",
+      "prompt": "Your car has a donut spare on the back left wheel. Can you test in it today?",
+      "modelAnswer": "No. A donut spare is not allowed. The test gets rescheduled until the car has a proper tire.",
+      "keyPoints": ["no", "donut spare not allowed", "test is rescheduled"],
+      "distractors": [
+        "Yes, as long as you drive under 50 mph.",
+        "Yes, the examiner only checks the front tires."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "checkin-repeat",
+      "category": "test-day",
+      "severity": "tip",
+      "phase": "checkin",
+      "prompt": "The examiner gives you a direction and you are not sure you heard it. What do you do?",
+      "modelAnswer": "Ask them to repeat it. That is allowed. Then repeat it back, for example: left at the next street, then first right.",
+      "keyPoints": ["ask them to repeat", "repeat the instruction back"],
+      "distractors": [
+        "Guess and keep going. Asking costs points.",
+        "Pull over and stop until they say it again."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "exit-lot",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "exit",
+      "highRisk": true,
+      "prompt": "Pull out of the parking lot and turn right. Walk me through it.",
+      "modelAnswer": "Signal early. Stop fully before the sidewalk as if it were a limit line. Check for pedestrians. Look left, right, left. Then turn right into the nearest lane.",
+      "keyPoints": ["signal early", "full stop before the sidewalk", "check for pedestrians", "look left, right, left"],
+      "distractors": [
+        "Roll slowly across the sidewalk and stop at the street edge, then go.",
+        "Stop at the street, look left only, and go when it is clear."
+      ],
+      "followUp": "exit-lot-why",
+      "source": "laws"
+    },
+    {
+      "id": "exit-lot-why",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "exit",
+      "prompt": "There is no painted line at the lot exit. Where exactly do you stop?",
+      "modelAnswer": "Before the sidewalk. Treat the sidewalk edge like a limit line, then creep up if you need to see the street.",
+      "keyPoints": ["stop before the sidewalk", "creep forward to see if needed"],
+      "distractors": [
+        "At the curb line, with the front of the car over the sidewalk.",
+        "You do not need to stop if no cars are coming."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "four-way-first",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You pull up to a four-way stop. Two cars are already stopped there. What do you do?",
+      "modelAnswer": "Stop fully behind the line. Let the two cars that were there first go, in the order they arrived. Then it is my turn. Look left, right, left, and go.",
+      "keyPoints": ["full stop", "cars that stopped first go first", "wait your turn", "look left, right, left"],
+      "distractors": [
+        "Go right after your stop. Everyone is stopped, so you have a gap.",
+        "Wave them on and go at the same time as the second car."
+      ],
+      "followUp": "four-way-flashing-red",
+      "source": "laws"
+    },
+    {
+      "id": "four-way-flashing-red",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The lights at a four-way intersection are all flashing red. You stopped. A car on your left arrived before you and is still waiting. Can you turn left now?",
+      "modelAnswer": "No. A four-way flashing red works exactly like a four-way stop. The car that arrived first goes first. I wait for it, then take my turn.",
+      "keyPoints": ["same as a four-way stop", "first to stop goes first", "wait for that car"],
+      "distractors": [
+        "Yes. Flashing red means stop, then go when you like.",
+        "Yes, because left turns go before cars going straight."
+      ],
+      "followUp": "four-way-first",
+      "source": "laws"
+    },
+    {
+      "id": "four-way-same-time-right",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You and another car stop at a four-way stop at the same moment. They are on your right. Who goes?",
+      "modelAnswer": "The car on the right goes first, so they go. Then I look left, right, left and go.",
+      "keyPoints": ["car on the right goes first", "they go, then you"],
+      "distractors": [
+        "You go first because you are on their left.",
+        "Whoever is bigger goes first."
+      ],
+      "followUp": "four-way-same-time-left",
+      "source": "laws"
+    },
+    {
+      "id": "four-way-same-time-left",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You and another car stop at a four-way stop at the same time. This time they are on your left. Who goes?",
+      "modelAnswer": "I go. I am on their right, and the car on the right goes first. I still look left, right, left before moving.",
+      "keyPoints": ["you go", "you are on their right", "still look left, right, left"],
+      "distractors": [
+        "They go, because the car on the left always goes first.",
+        "Neither. Wait until one of you waves."
+      ],
+      "followUp": "four-way-same-time-right",
+      "source": "laws"
+    },
+    {
+      "id": "four-way-facing",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "At a four-way stop, you and an oncoming car stop at the same time, facing each other. You want to turn left. They are going straight. Who goes?",
+      "modelAnswer": "They go first. Straight goes before a left turn. Once they clear, I turn.",
+      "keyPoints": ["car going straight goes first", "you turn left after"],
+      "distractors": [
+        "You go first because you signalled.",
+        "You both go together since you will not cross paths."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "four-way-after-you",
+      "category": "four-way",
+      "severity": "critical",
+      "prompt": "You stop at a four-way stop. A second later, a car pulls up on your right. Who goes?",
+      "modelAnswer": "I go. I stopped first. The car on the right rule is only for arriving at the same time.",
+      "keyPoints": ["you stopped first so you go", "right rule only for same time"],
+      "distractors": [
+        "They go, because the car on the right always goes first.",
+        "Wait until they wave you through."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "stop-sign-roll",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Stop sign, quiet street, nobody around. What exactly do you do?",
+      "modelAnswer": "Come to a full stop behind the limit line. Count one, two. Look left, right, left again for cars and people. Then go.",
+      "keyPoints": ["full stop behind the line", "count one, two", "look left, right, left"],
+      "distractors": [
+        "Slow to walking speed. If it is clear, keep rolling through.",
+        "Stop past the line so you can see better, then go."
+      ],
+      "followUp": "stop-no-line",
+      "source": "laws"
+    },
+    {
+      "id": "stop-no-line",
+      "category": "signals",
+      "severity": "points",
+      "prompt": "There is a stop sign but no painted limit line. Where do you stop?",
+      "modelAnswer": "Before the crosswalk. If there is no crosswalk, before the intersection. If I cannot see, I creep forward slowly and stop again.",
+      "keyPoints": ["before the crosswalk", "if no crosswalk, before the intersection", "creep forward and stop again if you cannot see"],
+      "distractors": [
+        "Right at the stop sign pole, wherever it is.",
+        "In the crosswalk, so you can see the cross street."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "flashing-red",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "A single traffic light ahead is flashing red. What does it mean?",
+      "modelAnswer": "Treat it exactly like a stop sign. Full stop, look left, right, left, go when it is safe and it is my turn.",
+      "keyPoints": ["same as a stop sign", "full stop", "go when safe and your turn"],
+      "distractors": [
+        "Slow down and go through with care. No stop needed.",
+        "The light is broken. Stop and wait for it to turn green."
+      ],
+      "followUp": "flashing-yellow",
+      "source": "laws"
+    },
+    {
+      "id": "flashing-yellow",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The light ahead is flashing yellow. Do you have to stop?",
+      "modelAnswer": "No. Slow down and go through carefully. Be ready to stop for anyone in the way.",
+      "keyPoints": ["no stop required", "slow down", "proceed with caution"],
+      "distractors": [
+        "Yes. Flashing yellow means stop, like a stop sign.",
+        "No. Flashing yellow means speed up before it turns red."
+      ],
+      "followUp": "flashing-red",
+      "source": "laws"
+    },
+    {
+      "id": "flashing-yellow-arrow",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You want to turn left. The left arrow is flashing yellow. Oncoming cars keep coming. What do you do?",
+      "modelAnswer": "I may turn, but I must yield. Oncoming traffic has a green and will not stop for me. Pull up to the line, wheels straight, let all oncoming cars pass, check the crosswalk I am turning into, then turn on a safe gap.",
+      "keyPoints": ["you may turn but must yield", "oncoming traffic will not stop", "wheels straight while waiting", "check the crosswalk", "turn on a safe gap"],
+      "distractors": [
+        "It is a protected turn. Oncoming cars must stop for you.",
+        "It means stop and wait for a solid green arrow."
+      ],
+      "followUp": "green-arrow",
+      "source": "laws"
+    },
+    {
+      "id": "green-arrow",
+      "category": "signals",
+      "severity": "points",
+      "prompt": "Solid green arrow, solid yellow arrow, red arrow. What does each one mean for your turn?",
+      "modelAnswer": "Green arrow: protected turn, go. Yellow arrow: about to go red, do not start the turn unless already committed. Red arrow: stop, do not turn.",
+      "keyPoints": ["green arrow is protected, go", "yellow arrow do not start unless committed", "red arrow stop, no turn"],
+      "distractors": [
+        "Green arrow: yield to oncoming cars. Yellow arrow: speed up. Red arrow: turn after stopping.",
+        "All three mean you may turn if the road is clear."
+      ],
+      "followUp": "flashing-yellow-arrow",
+      "source": "laws"
+    },
+    {
+      "id": "left-green-ball",
+      "category": "signals",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "You are turning left on a solid green light, no arrow. Oncoming traffic is steady. Where do you wait?",
+      "modelAnswer": "Pull forward into the intersection, past the limit line, wheels straight. Turn when there is a gap, or when oncoming traffic stops at the yellow.",
+      "keyPoints": ["pull into the intersection", "wheels straight", "turn on a gap or when oncoming stops at the yellow"],
+      "distractors": [
+        "Wait behind the limit line until the light turns yellow, then go.",
+        "Wait in the intersection with the wheels already turned left, ready to go."
+      ],
+      "followUp": "wheels-straight",
+      "source": "lanes"
+    },
+    {
+      "id": "wheels-straight",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "Why keep your wheels straight while waiting to turn left?",
+      "modelAnswer": "If someone hits me from behind, straight wheels keep me from being pushed into oncoming traffic. Turned wheels are marked as an error.",
+      "keyPoints": ["if hit from behind you stay out of oncoming traffic", "turned wheels are an error"],
+      "distractors": [
+        "So the examiner can see the turn signal better.",
+        "It does not matter. Turning the wheels early is faster."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "right-on-red",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Red light. You want to turn right. No sign says otherwise. What do you do?",
+      "modelAnswer": "Come to a full stop behind the line. Check left for traffic and the crosswalk for people. Turn right only when it is clear.",
+      "keyPoints": ["full stop first", "check left for traffic", "check the crosswalk", "turn when clear"],
+      "distractors": [
+        "Slow down and turn if nobody is coming. Right on red does not need a full stop.",
+        "Right on red is never allowed on the test."
+      ],
+      "followUp": "no-turn-on-red",
+      "source": "lanes"
+    },
+    {
+      "id": "no-turn-on-red",
+      "category": "signals",
+      "severity": "critical",
+      "prompt": "Red light, and a sign says No Turn on Red. Nobody is coming. Can you turn right?",
+      "modelAnswer": "No. Wait for the green.",
+      "keyPoints": ["no", "wait for green"],
+      "distractors": [
+        "Yes, after a full stop, if it is clear.",
+        "Yes, the sign only applies at night."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "yellow-light",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The light turns yellow as you approach. What do you do?",
+      "modelAnswer": "Stop if I can do it safely. If I am too close to stop smoothly, continue through carefully.",
+      "keyPoints": ["stop if you can safely", "too close to stop, continue carefully"],
+      "distractors": [
+        "Speed up to beat the red.",
+        "Always slam on the brakes, no matter how close you are."
+      ],
+      "followUp": "stale-green",
+      "source": "laws"
+    },
+    {
+      "id": "stale-green",
+      "category": "signals",
+      "severity": "tip",
+      "prompt": "The light ahead has been green for a long time. What do you do as you approach?",
+      "modelAnswer": "Ease off the gas and cover the brake so I can stop smoothly if it turns yellow.",
+      "keyPoints": ["ease off the gas", "be ready to stop smoothly"],
+      "distractors": [
+        "Speed up so you make it through before it changes.",
+        "Stop and wait for it to cycle."
+      ],
+      "source": "safe"
+    },
+    {
+      "id": "signal-out",
+      "category": "signals",
+      "severity": "critical",
+      "prompt": "You reach an intersection and the traffic lights are completely dark. Power is out. What do you do?",
+      "modelAnswer": "Treat it as a four-way stop. Full stop, take turns in the order cars arrived.",
+      "keyPoints": ["treat as a four-way stop", "full stop", "take turns in order"],
+      "distractors": [
+        "Main road keeps going; only the side street stops.",
+        "Slow down and go if it looks clear."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "red-light-run",
+      "category": "signals",
+      "severity": "critical",
+      "prompt": "You stopped at a red light. The cross traffic light just turned yellow. Can you start moving?",
+      "modelAnswer": "No. I wait for my own light to turn green, then check that the intersection is clear and nobody is running the light.",
+      "keyPoints": ["wait for your own green", "check the intersection is clear"],
+      "distractors": [
+        "Yes, creep forward so you are ready.",
+        "Yes, if no cross traffic is coming."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "crosswalk-entering",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You are about to turn right. A person is stepping off the curb into the crosswalk you are turning into. What do you do?",
+      "modelAnswer": "Stop and let them cross. I do not turn until they are fully across or well clear of my path.",
+      "keyPoints": ["stop", "yield to the pedestrian", "wait until they are across"],
+      "distractors": [
+        "Turn quickly before they reach your lane.",
+        "Honk so they know you are turning."
+      ],
+      "followUp": "ped-corner-waiting",
+      "source": "laws"
+    },
+    {
+      "id": "ped-corner-waiting",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "A person is standing at the corner, facing the street, clearly about to cross. They have not stepped off yet. What do you do?",
+      "modelAnswer": "Stop before the crosswalk and let them go.",
+      "keyPoints": ["stop before the crosswalk", "let them cross"],
+      "distractors": [
+        "Keep going. They have not stepped off yet.",
+        "Slow down and wave them across while you keep rolling."
+      ],
+      "followUp": "ped-on-green",
+      "source": "laws"
+    },
+    {
+      "id": "ped-on-green",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Your light turns green, but a pedestrian is still crossing in front of you. What do you do?",
+      "modelAnswer": "Wait until they are fully across. Green does not mean go if someone is still in the crosswalk.",
+      "keyPoints": ["wait until fully across", "pedestrians still in the crosswalk have the right of way"],
+      "distractors": [
+        "Go. You have the green.",
+        "Creep forward to hurry them along."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "ped-beacon",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Yellow lights are flashing at a crosswalk in the middle of the block. What does it mean and what do you do?",
+      "modelAnswer": "Someone pressed the button to cross. Slow down, find the pedestrian, stop before the crosswalk line, and wait until they have fully crossed.",
+      "keyPoints": ["someone pressed the button", "find the pedestrian", "stop before the crosswalk", "wait until fully crossed"],
+      "distractors": [
+        "Slow down a little. Flashing yellow means caution only, no need to stop.",
+        "It is a school zone sign. Drive 25 and continue."
+      ],
+      "followUp": "pass-stopped-crosswalk",
+      "source": "laws"
+    },
+    {
+      "id": "pass-stopped-crosswalk",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Two lanes going your way. The car in the next lane has stopped at a crosswalk. Nothing is in front of you. What do you do?",
+      "modelAnswer": "Stop too. Never pass a car that is stopped at a crosswalk. Someone may be crossing where I cannot see.",
+      "keyPoints": ["stop too", "never pass a car stopped at a crosswalk", "a pedestrian may be hidden"],
+      "distractors": [
+        "Keep going. Your lane is clear.",
+        "Change lanes behind the stopped car and wait."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "cyclist-right-turn",
+      "category": "pedestrians",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "You want to turn right. A cyclist is in the bike lane right beside you. What do you do?",
+      "modelAnswer": "Let them pass first. Then check the right mirror and right shoulder, move into the bike lane, and turn. If there is no room, wait and turn behind them.",
+      "keyPoints": ["let the cyclist pass first", "right mirror and right shoulder check", "move into the bike lane then turn"],
+      "distractors": [
+        "Speed up, get ahead of them, and turn in front.",
+        "Turn from your lane. Bike lanes are for bikes only."
+      ],
+      "followUp": "bike-lane-right",
+      "source": "lanes"
+    },
+    {
+      "id": "bike-lane-right",
+      "category": "lanes",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "There is a bike lane on your right and you need to turn right ahead. How do you set up the turn?",
+      "modelAnswer": "Within 200 feet of the turn, when it is safe: signal, right mirror, right shoulder check, merge into the bike lane, then turn from there.",
+      "keyPoints": ["enter the bike lane within 200 feet", "signal and check right shoulder", "turn from the bike lane"],
+      "distractors": [
+        "Never drive in a bike lane. Turn from the travel lane across it.",
+        "Enter the bike lane a full block early so you are ready."
+      ],
+      "followUp": "cyclist-right-turn",
+      "source": "lanes"
+    },
+    {
+      "id": "smog",
+      "category": "observation",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "You need to change lanes to the left. Walk me through it.",
+      "modelAnswer": "SMOG. Signal about 5 seconds before. Mirror, rear-view and left side. Over the shoulder, a big obvious head turn to the left. Go, smoothly, keeping my speed. Then cancel the signal.",
+      "keyPoints": ["signal about 5 seconds before", "check mirrors", "over the shoulder head check", "go smoothly", "cancel the signal"],
+      "distractors": [
+        "Check the mirror and move over. The signal is optional if nobody is near.",
+        "Signal and move over at the same moment so you do not slow traffic."
+      ],
+      "followUp": "head-check-size",
+      "source": "lanes"
+    },
+    {
+      "id": "head-check-size",
+      "category": "observation",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "The examiner marked you for traffic checks even though you looked. Why might that happen?",
+      "modelAnswer": "The head checks were too small to see. Turn the whole head, slowly and obviously, at every stop, turn and lane change, so the examiner sees it.",
+      "keyPoints": ["head checks too small", "turn the whole head", "slow and obvious", "every stop, turn and lane change"],
+      "distractors": [
+        "Examiners only count checks you say out loud.",
+        "You should only use mirrors. Turning your head is marked as a distraction."
+      ],
+      "followUp": "smog",
+      "source": "safe"
+    },
+    {
+      "id": "check-cars-not-just-people",
+      "category": "observation",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "At a stop sign, you checked the crosswalk for people. What else do you check before going?",
+      "modelAnswer": "Cars. Look left, right, left again for traffic, not just pedestrians.",
+      "keyPoints": ["check for cars", "look left, right, left"],
+      "distractors": [
+        "Nothing else. Pedestrians are all that matter at a stop sign.",
+        "Only check your rear-view mirror."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "turn-signal-distance",
+      "category": "lanes",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "How early do you signal before a turn?",
+      "modelAnswer": "About 100 feet before the turn.",
+      "keyPoints": ["about 100 feet before"],
+      "distractors": [
+        "Just as you start turning the wheel.",
+        "At least a quarter mile before."
+      ],
+      "followUp": "smog",
+      "source": "lanes"
+    },
+    {
+      "id": "wide-turn",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "You turn right from a road onto a street with two lanes going your way. Which lane do you end up in?",
+      "modelAnswer": "The nearest lane, the right-hand one. No wide turns. Change lanes later with SMOG if needed.",
+      "keyPoints": ["turn into the nearest lane", "no wide turns"],
+      "distractors": [
+        "Whichever lane is empty.",
+        "The left lane, so you have more room."
+      ],
+      "followUp": "left-turn-lane",
+      "source": "lanes"
+    },
+    {
+      "id": "left-turn-lane",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "You turn left from a one-way road onto a street with two lanes going your way. Which lane do you finish in?",
+      "modelAnswer": "The nearest lane, the left-hand one. Then change lanes later if needed.",
+      "keyPoints": ["nearest lane", "the left lane"],
+      "distractors": [
+        "The far right lane, to get out of the way.",
+        "Any lane, as long as you signal."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "limit-line",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "Where must your car be when you stop at a red light?",
+      "modelAnswer": "Behind the limit line, and never in the crosswalk.",
+      "keyPoints": ["behind the limit line", "not in the crosswalk"],
+      "distractors": [
+        "With the front bumper on the limit line.",
+        "Anywhere before the middle of the intersection."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "spacing-bins",
+      "category": "lanes",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "It is trash day. Bins line the curb on your right. Cars are parked too. Where do you drive?",
+      "modelAnswer": "Centred in my lane with about an arm's length from bins and parked cars. Clipping a bin with the mirror counts as hitting an object.",
+      "keyPoints": ["stay centred in the lane", "about an arm's length", "clipping a bin counts as hitting an object"],
+      "distractors": [
+        "Hug the right side so you stay away from oncoming traffic.",
+        "Bins do not count. Only cars matter."
+      ],
+      "followUp": "hit-object",
+      "source": "safe"
+    },
+    {
+      "id": "hit-object",
+      "category": "lanes",
+      "severity": "critical",
+      "prompt": "Your tire touches the curb while turning. Is that a big deal on the test?",
+      "modelAnswer": "Yes. Hitting a curb or any object is a critical error and an automatic fail.",
+      "keyPoints": ["yes", "hitting a curb or object is a critical error"],
+      "distractors": [
+        "No. A light touch is fine.",
+        "Only if it damages the tire."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "yellow-center-line",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "There is a solid yellow line and a broken yellow line in the centre. Which one applies to you?",
+      "modelAnswer": "The one closest to me. If the broken line is on my side, I may pass when safe. If the solid line is on my side, I may not.",
+      "keyPoints": ["the line closest to you applies", "broken on your side you may pass", "solid on your side you may not"],
+      "distractors": [
+        "The solid one always wins. Nobody can pass.",
+        "The broken one always wins. Anyone can pass."
+      ],
+      "followUp": "passing",
+      "source": "lanes"
+    },
+    {
+      "id": "passing",
+      "category": "lanes",
+      "severity": "tip",
+      "prompt": "Two-lane road. A slow car is ahead. Should you pass it on the test?",
+      "modelAnswer": "Usually no. Only pass if the yellow line on my side is broken and the road ahead is clear. On the test it is usually better not to.",
+      "keyPoints": ["only if your line is broken and the road is clear", "usually better not to pass on the test"],
+      "distractors": [
+        "Yes. Examiners like to see confident passing.",
+        "Yes, any time the oncoming lane looks empty."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "following-distance",
+      "category": "speed",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "How far behind the car ahead should you be, and how do you check?",
+      "modelAnswer": "Three seconds. When the car ahead passes a fixed point, count one thousand one, two, three. If I reach the point before three, I back off.",
+      "keyPoints": ["three seconds", "count from a fixed point", "back off if too close"],
+      "distractors": [
+        "One car length for every 30 mph.",
+        "Close enough that nobody can cut in."
+      ],
+      "followUp": "rain",
+      "source": "safe"
+    },
+    {
+      "id": "speed-posted",
+      "category": "speed",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The limit is 35. Everyone around you is doing 45. What speed do you drive?",
+      "modelAnswer": "The posted limit, 35, even if traffic is faster. More than 10 over is a serious error.",
+      "keyPoints": ["drive the posted limit", "even if traffic is faster"],
+      "distractors": [
+        "Match traffic. Going slower is dangerous.",
+        "Drive 40. Five over is always fine on the test."
+      ],
+      "followUp": "too-slow",
+      "source": "speed"
+    },
+    {
+      "id": "too-slow",
+      "category": "speed",
+      "severity": "critical",
+      "prompt": "Is driving well under the limit the safe choice on the test?",
+      "modelAnswer": "No. Driving so slowly that you hold up traffic or create a hazard is also an error. Drive at the limit when it is safe.",
+      "keyPoints": ["no", "too slow can be a hazard", "drive the limit when safe"],
+      "distractors": [
+        "Yes. Examiners never mark you for going slow.",
+        "Yes, 10 under is ideal."
+      ],
+      "source": "speed"
+    },
+    {
+      "id": "school-zone",
+      "category": "speed",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You pass a school while kids are outside. No speed sign is posted. What is the limit?",
+      "modelAnswer": "25 mph when children are present, unless a lower limit is posted.",
+      "keyPoints": ["25 mph", "when children are present", "unless posted lower"],
+      "distractors": [
+        "35 mph, the same as the road.",
+        "15 mph at all times, day or night."
+      ],
+      "followUp": "residential-speed",
+      "source": "speed"
+    },
+    {
+      "id": "residential-speed",
+      "category": "speed",
+      "severity": "points",
+      "prompt": "Residential street, no speed sign in sight. How fast?",
+      "modelAnswer": "Usually 25 mph, unless posted otherwise.",
+      "keyPoints": ["25 mph"],
+      "distractors": [
+        "35 mph.",
+        "Whatever feels safe, up to 40."
+      ],
+      "source": "speed"
+    },
+    {
+      "id": "blind-intersection",
+      "category": "speed",
+      "severity": "points",
+      "prompt": "You approach an uncontrolled intersection where hedges block your view of the cross street. What speed and what do you do?",
+      "modelAnswer": "15 mph. Slow right down, look left, right, left, and be ready to stop.",
+      "keyPoints": ["15 mph", "look left, right, left", "be ready to stop"],
+      "distractors": [
+        "25 mph like any residential street.",
+        "Keep your speed. Uncontrolled means you have the right of way."
+      ],
+      "followUp": "uncontrolled",
+      "source": "sharing"
+    },
+    {
+      "id": "uncontrolled",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "No signs, no lights at an intersection. A car is approaching from your right at the same time. Who goes?",
+      "modelAnswer": "They do. Slow down, look left, right, left, be ready to stop, and yield to a car already there or arriving at the same time from my right.",
+      "keyPoints": ["slow down and be ready to stop", "look left, right, left", "yield to the car on your right"],
+      "distractors": [
+        "You do. The car on the left goes first.",
+        "Whoever is going faster."
+      ],
+      "followUp": "four-way-same-time-right",
+      "source": "laws"
+    },
+    {
+      "id": "rr-flashing",
+      "category": "railroad",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Railroad crossing. The lights start flashing and the gates come down. What do you do?",
+      "modelAnswer": "Stop at least 15 feet from the tracks. Stay stopped until the lights stop flashing and the gates are fully up, even after the train has passed. Then look and listen both ways before crossing.",
+      "keyPoints": ["stop at least 15 feet back", "wait until lights stop and gates are fully up", "even after the train passes", "look and listen both ways"],
+      "distractors": [
+        "Cross quickly if you cannot see a train yet.",
+        "Go as soon as the train has passed, even if the gates are still rising."
+      ],
+      "followUp": "rr-gates-up",
+      "source": "sharing"
+    },
+    {
+      "id": "rr-gates-up",
+      "category": "railroad",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The train has passed but the lights are still flashing and the gates are halfway up. Can you go?",
+      "modelAnswer": "No. Wait until the lights stop and the gates are fully up. Another train could be coming.",
+      "keyPoints": ["no", "wait for lights off and gates fully up", "another train may come"],
+      "distractors": [
+        "Yes. The train is gone.",
+        "Yes, if you drive around the gate carefully."
+      ],
+      "source": "sharing"
+    },
+    {
+      "id": "rr-backed-up",
+      "category": "railroad",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Traffic is backed up just past the railroad tracks. The crossing lights are off. What do you do?",
+      "modelAnswer": "Wait before the tracks until there is room for my whole car on the far side. Never stop on the tracks.",
+      "keyPoints": ["wait before the tracks", "room for the whole car on the far side", "never stop on the tracks"],
+      "distractors": [
+        "Pull onto the tracks. Traffic will move soon.",
+        "Stop with your back wheels on the tracks so you are close."
+      ],
+      "source": "sharing"
+    },
+    {
+      "id": "rr-no-lights",
+      "category": "railroad",
+      "severity": "points",
+      "prompt": "Railroad crossing with no lights flashing and no gates down. What do you do?",
+      "modelAnswer": "Slow down, look and listen both ways, then cross without stopping on the tracks.",
+      "keyPoints": ["slow down", "look and listen both ways", "do not stop on the tracks"],
+      "distractors": [
+        "Always come to a full stop at every crossing.",
+        "Keep your speed. No lights means no train."
+      ],
+      "followUp": "rr-flashing",
+      "source": "sharing"
+    },
+    {
+      "id": "emergency-vehicle",
+      "category": "special",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "An ambulance with its siren on is coming up behind you. What do you do?",
+      "modelAnswer": "Signal, pull to the right edge of the road, and stop until it passes. If I am in an intersection, I clear it first, then pull over.",
+      "keyPoints": ["signal and pull to the right edge", "stop until it passes", "clear the intersection first"],
+      "distractors": [
+        "Stop right where you are, even in the intersection.",
+        "Speed up to stay ahead of it."
+      ],
+      "source": "sharing"
+    },
+    {
+      "id": "school-bus",
+      "category": "special",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "A school bus ahead has its red lights flashing. What do you do?",
+      "modelAnswer": "Stop and stay stopped until the red lights turn off. Oncoming traffic must stop too, unless it is on the other side of a divided road or a road with two or more lanes each way.",
+      "keyPoints": ["stop", "stay stopped until the lights turn off", "oncoming traffic stops too unless divided"],
+      "distractors": [
+        "Slow to 10 mph and pass carefully.",
+        "Stop, then go once the kids are off the road even if the lights are still flashing."
+      ],
+      "source": "sharing"
+    },
+    {
+      "id": "rain-headlights",
+      "category": "special",
+      "severity": "points",
+      "prompt": "It starts raining and your wipers are running continuously. What else must you do?",
+      "modelAnswer": "Turn on the headlights. California requires them when wipers are in continuous use. Also slow down and leave more following distance.",
+      "keyPoints": ["headlights on", "slow down", "more following distance"],
+      "distractors": [
+        "Turn on the hazard lights.",
+        "Nothing else. Wipers are enough."
+      ],
+      "source": "safe"
+    },
+    {
+      "id": "rain",
+      "category": "special",
+      "severity": "tip",
+      "prompt": "Wet roads. What changes about your following distance?",
+      "modelAnswer": "Increase it beyond three seconds and slow down. Stopping takes longer on wet roads.",
+      "keyPoints": ["more than three seconds", "slow down"],
+      "distractors": [
+        "Nothing. Three seconds is always enough.",
+        "Follow closer so you can use the car ahead's tracks."
+      ],
+      "followUp": "rain-headlights",
+      "source": "safe"
+    },
+    {
+      "id": "freeway-merge",
+      "category": "special",
+      "severity": "points",
+      "prompt": "The examiner asks you to get on the freeway. How do you merge?",
+      "modelAnswer": "Use the on-ramp to reach freeway speed. Signal, check mirrors and look over the left shoulder, find a gap, and merge smoothly. Do not stop on the ramp unless forced to.",
+      "keyPoints": ["build up to freeway speed on the ramp", "signal and look over the left shoulder", "merge smoothly into a gap"],
+      "distractors": [
+        "Stop at the end of the ramp and wait for a big gap.",
+        "Merge slowly at 40 so traffic can let you in."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "pull-over",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "pullover",
+      "highRisk": true,
+      "prompt": "Pull over to the curb on the right, just past that driveway. Walk me through it.",
+      "modelAnswer": "SMOG to the right: signal, right mirror, right shoulder check, go. Stop smoothly within 18 inches of the curb without touching it. Then set the parking brake if asked.",
+      "keyPoints": ["signal right", "right mirror and right shoulder check", "within 18 inches of the curb", "do not touch the curb"],
+      "distractors": [
+        "Brake and steer to the curb. No signal needed for parking.",
+        "Stop with your tire against the curb so you are close enough."
+      ],
+      "followUp": "pull-out",
+      "source": "parking"
+    },
+    {
+      "id": "pull-out",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "pullover",
+      "highRisk": true,
+      "prompt": "Now pull back out into traffic from the curb. What do you do?",
+      "modelAnswer": "Signal left, check the left mirror, look over the left shoulder, then go when there is a safe gap.",
+      "keyPoints": ["signal left", "left mirror", "left shoulder check", "go on a safe gap"],
+      "distractors": [
+        "Pull out quickly. Cars behind will slow down.",
+        "Check the rear-view mirror only, then go."
+      ],
+      "source": "parking"
+    },
+    {
+      "id": "backing",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "backing",
+      "highRisk": true,
+      "prompt": "Back up straight along the curb for about three car lengths. How do you do it?",
+      "modelAnswer": "Turn and look back over my right shoulder through the rear window, not only the camera. Reverse slowly and straight, staying close to the curb, for about three car lengths.",
+      "keyPoints": ["look back over your right shoulder", "through the rear window", "slowly and straight", "close to the curb", "about three car lengths"],
+      "distractors": [
+        "Watch the backup camera the whole time. That is what it is for.",
+        "Use the side mirrors only and reverse at a steady jog."
+      ],
+      "followUp": "pull-out",
+      "source": "parking"
+    },
+    {
+      "id": "return-dmv",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "return",
+      "prompt": "Head back into the DMV lot and park. What do you do?",
+      "modelAnswer": "Signal early and slow down. Yield to pedestrians on the sidewalk. Drive slowly through the lot. Park where the examiner says and set the parking brake.",
+      "keyPoints": ["signal early and slow down", "yield to pedestrians on the sidewalk", "drive slowly through the lot", "park where told", "set the parking brake"],
+      "distractors": [
+        "The test is over once you see the lot. Relax and park anywhere.",
+        "Turn in quickly so you do not hold up traffic behind you."
+      ],
+      "source": "parking"
+    },
+    {
+      "id": "lane-change-cancel",
+      "category": "observation",
+      "severity": "tip",
+      "prompt": "You finished a lane change. What is the last thing to do?",
+      "modelAnswer": "Make sure the turn signal has cancelled. Turn it off by hand if not.",
+      "keyPoints": ["cancel the signal"],
+      "distractors": [
+        "Leave it on so the car behind knows where you went.",
+        "Flash the hazards to say thank you."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "turn-head-check",
+      "category": "observation",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "You are turning right at an intersection. Which checks does the examiner want to see?",
+      "modelAnswer": "Signal early, check the right mirror, a big right shoulder check for bikes, then look left, right, left and check the crosswalk before turning.",
+      "keyPoints": ["right mirror", "right shoulder check", "look left, right, left", "check the crosswalk"],
+      "distractors": [
+        "Just look left for traffic. That is the only danger on a right turn.",
+        "Check the rear-view mirror, then turn."
+      ],
+      "followUp": "head-check-size",
+      "source": "lanes"
+    },
+    {
+      "id": "examiner-instruction",
+      "category": "test-day",
+      "severity": "tip",
+      "prompt": "The examiner says: left at the next street, then the first right. What do you do with that?",
+      "modelAnswer": "Repeat it back, then plan my lanes early: get into the left lane in good time with SMOG, and know the right turn is coming.",
+      "keyPoints": ["repeat it back", "plan lanes early"],
+      "distractors": [
+        "Wait until you reach the street before thinking about lanes.",
+        "Turn at the first opening you see, to show you are listening."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "center-turn-lane",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "There is a centre lane marked for left turns from both directions. How do you use it?",
+      "modelAnswer": "Only for starting or finishing a left turn. Signal, check mirrors and shoulder, move in just before the turn, and do not drive along it to pass.",
+      "keyPoints": ["only for left turns", "move in just before the turn", "do not use it to pass or travel"],
+      "distractors": [
+        "Use it as a passing lane when traffic is slow.",
+        "Drive in it for as long as you like before turning."
+      ],
+      "source": "lanes"
+    }
+  ]
+}
+
+    </script>
+    <script type="application/json" id="office-data">
+[{"id":"alturas","name":"Alturas","address":"903 W C St, Alturas, CA 96101"},{"id":"arleta","name":"Arleta","address":"14400 Van Nuys Blvd, Arleta, CA 91331"},{"id":"arvin","name":"Arvin","address":"317 Campus Dr, Arvin, CA 93203"},{"id":"auburn","name":"Auburn","address":"11722 Enterprise Dr, Auburn, CA 95603"},{"id":"bakersfield","name":"Bakersfield","address":"3120 F Street, Bakersfield, CA 93301"},{"id":"barstow","name":"Barstow","address":"528 E Virginia Way, Barstow, CA 92311"},{"id":"bell-gardens","name":"Bell Gardens","address":"6801 South Garfield, Bell Gardens, CA 90201"},{"id":"bellflower","name":"Bellflower","address":"9520 Artesia Blvd, Bellflower, CA 90706"},{"id":"bishop","name":"Bishop","address":"1115 West Line Street, Bishop, CA 93514"},{"id":"blythe","name":"Blythe","address":"430 S Broadway, Blythe, CA 92225"},{"id":"brawley","name":"Brawley","address":"173 W Main St., Brawley, CA 92227"},{"id":"capitola","name":"Capitola","address":"4200 Capitola Road, Capitola, CA 95010"},{"id":"carmichael","name":"Carmichael","address":"5209 North Ave, Carmichael, CA 95608"},{"id":"chico","name":"Chico","address":"107 Parmac Rd #1, Chico, CA 95926"},{"id":"chula-vista","name":"Chula Vista","address":"30 N Glover Avenue, Chula Vista, CA 91910"},{"id":"clearlake","name":"Clearlake","address":"15930 Dam Rd, Unit B, Clearlake, CA 95422"},{"id":"clovis","name":"Clovis","address":"2103 Shaw Avenue, Clovis, CA 93611"},{"id":"coalinga","name":"Coalinga","address":"406 East Elm Avenue, Coalinga, CA 93210"},{"id":"colusa","name":"Colusa","address":"1025 Bridge St STE B, Colusa, CA 95932"},{"id":"compton","name":"Compton","address":"2111 South Santa Fe Avenue, Compton, CA 90221"},{"id":"concord","name":"Concord","address":"2070 Diamond Boulevard, Concord, CA 94520"},{"id":"corte-madera","name":"Corte Madera","address":"75 Tamal Vista Boulevard, Corte Madera, CA 94925"},{"id":"costa-mesa","name":"Costa Mesa","address":"650 W 19th Street, Costa Mesa, CA 92627"},{"id":"crescent-city","name":"Crescent City","address":"1475 Parkway Drive, Crescent City, CA 95531"},{"id":"culver-city","name":"Culver City","address":"11400 W Washington Blvd, Culver City, CA 90066"},{"id":"daly-city","name":"Daly City","address":"1500 Sullivan Avenue, Daly City, CA 94015"},{"id":"davis","name":"Davis","address":"505 Pole Line Road, Davis, CA 95616"},{"id":"delano","name":"Delano","address":"631 Jefferson Street, Delano, CA 93215"},{"id":"el-cajon","name":"El Cajon","address":"1450 Graves Avenue, El Cajon, CA 92021"},{"id":"el-centro","name":"El Centro","address":"233 N Imperial Avenue, El Centro, CA 92243"},{"id":"el-cerrito","name":"El Cerrito","address":"6400 Manila Avenue, El Cerrito, CA 94530"},{"id":"el-monte","name":"El Monte","address":"4000 Arden Drive, El Monte, CA 91731"},{"id":"eureka","name":"Eureka","address":"2500 6th St, Eureka, CA 95501"},{"id":"fairfield","name":"Fairfield","address":"160 Serrano Drive, Fairfield, CA 94533"},{"id":"fall-river-mills","name":"Fall River Mills","address":"43467 Hwy 299E, Fall River Mills, CA 96028"},{"id":"folsom","name":"Folsom","address":"323 E Bidwell A, Folsom, CA 95630"},{"id":"fontana","name":"Fontana","address":"8026 Hemlock Ave, Fontana, CA 92336"},{"id":"fort-bragg","name":"Fort Bragg","address":"410 S Franklin Street, Fort Bragg, CA 95437"},{"id":"fremont","name":"Fremont","address":"4287 Central Avenue, Fremont, CA 94536"},{"id":"fresno","name":"Fresno","address":"655 W Olive Avenue, Fresno, CA 93728"},{"id":"fresno-north","name":"Fresno North","address":"6420 N Blackstone Avenue, Fresno, CA 93710"},{"id":"fullerton","name":"Fullerton","address":"909 W Valencia Drive, Fullerton, CA 92832"},{"id":"garberville","name":"Garberville","address":"1180 Evergreen Rd, Redway, CA 95560"},{"id":"gilroy","name":"Gilroy","address":"6984 Automall Parkway Suite A, Gilroy, CA 95020"},{"id":"glendale","name":"Glendale","address":"1335 W Glenoaks Boulevard, Glendale, CA 91201"},{"id":"goleta","name":"Goleta","address":"7127 Hollister Avenue Suite 24/26, Goleta, CA 93117"},{"id":"grass-valley","name":"Grass Valley","address":"890 Sutton Way, Grass Valley, CA 95945"},{"id":"hanford","name":"Hanford","address":"701 W Hanford Armona Road, Hanford, CA 93230"},{"id":"hawthorne","name":"Hawthorne","address":"3700 W El Segundo Boulevard, Hawthorne, CA 90250"},{"id":"hayward","name":"Hayward","address":"150 Jackson Street, Hayward, CA 94544"},{"id":"hemet","name":"Hemet","address":"1200 S State St, Hemet, CA 92543"},{"id":"hollister","name":"Hollister","address":"80 N Sally Street, Hollister, CA 95023"},{"id":"hollywood","name":"Hollywood","address":"803 Cole Avenue, Hollywood, CA 90038"},{"id":"indio","name":"Indio","address":"44480 Jackson St, Indio, CA 92201"},{"id":"inglewood","name":"Inglewood","address":"621 N La Brea Ave, Inglewood, CA 90302"},{"id":"jackson","name":"Jackson","address":"201 Clinton Road, Jackson, CA 95642"},{"id":"king-city","name":"King City","address":"101 E San Antonio Dr, King City, CA 93930"},{"id":"lake-isabella","name":"Lake Isabella","address":"5520 Lake Isabella Road G-1, Lake Isabella, CA 93240"},{"id":"lakeport","name":"Lakeport","address":"965 Parallel Drive, Lakeport, CA 95453"},{"id":"lancaster","name":"Lancaster","address":"721 W Ave L6, Lancaster, CA 93535"},{"id":"lincoln-park","name":"Lincoln Park","address":"3529 N Mission Road, Los Angeles, CA 90031"},{"id":"lodi","name":"Lodi","address":"1222 Pixley Parkway, Lodi, CA 95240"},{"id":"lompoc","name":"Lompoc","address":"1601 N H St, Lompoc, CA 93436"},{"id":"long-beach","name":"Long Beach","address":"3700 East Willow Street, Long Beach, CA 90815"},{"id":"los-angeles","name":"Los Angeles","address":"3615 S Hope Street, Los Angeles, CA 90007"},{"id":"los-banos","name":"Los Banos","address":"814 West L Street, Los Banos, CA 93635"},{"id":"los-gatos","name":"Los Gatos","address":"600 N Santa Cruz Avenue, Los Gatos, CA 95030"},{"id":"madera","name":"Madera","address":"1206 Maple Street, Madera, CA 93637"},{"id":"manteca","name":"Manteca","address":"955 Davis Street, Manteca, CA 95336"},{"id":"mariposa","name":"Mariposa","address":"5264 Highway 49-North, Mariposa, CA 95338"},{"id":"mendota","name":"Mendota","address":"655 Quince Street, Mendota, CA 93640"},{"id":"merced","name":"Merced","address":"1313 W 12th Street, Merced, CA 95340"},{"id":"modesto","name":"Modesto","address":"124 Burney Street, Modesto, CA 95354"},{"id":"montebello","name":"Montebello","address":"424 N Wilcox Avenue, Montebello, CA 90640"},{"id":"mt-shasta","name":"Mt Shasta","address":"154 Morgan Way, Mt Shasta, CA 96067"},{"id":"napa","name":"Napa","address":"2550 Napa Valley Corporate Drive, Napa, CA 94558"},{"id":"needles","name":"Needles","address":"1040 E Broadway St, Needles, CA 92363"},{"id":"newhall","name":"Newhall","address":"24427 Newhall Avenue, Newhall, CA 91321"},{"id":"norco","name":"Norco","address":"3201 Horseless Carriage Drive, Norco, CA 92860"},{"id":"novato","name":"Novato","address":"936 7th Street A, Novato, CA 94947"},{"id":"oakland","name":"Oakland","address":"5300 Claremont Avenue, Oakland, CA 94618"},{"id":"oakland-coliseum","name":"Oakland Coliseum","address":"501 85th Ave, Oakland, CA 94621"},{"id":"oceanside","name":"Oceanside","address":"4005 Plaza Drive, Oceanside, CA 92056"},{"id":"oroville","name":"Oroville","address":"775 Mitchell Avenue, Oroville, CA 95965"},{"id":"oxnard","name":"Oxnard","address":"4050 Saviers Road, Oxnard, CA 93033"},{"id":"palm-desert","name":"Palm Desert","address":"74-740 Technology Drive, Palm Desert, CA 92211"},{"id":"palm-springs","name":"Palm Springs","address":"950 N Farrell Drive, Palm Springs, CA 92262"},{"id":"pasadena","name":"Pasadena","address":"49 S Rosemead Boulevard, Pasadena, CA 91107"},{"id":"paso-robles","name":"Paso Robles","address":"841 Park Street, Paso Robles, CA 93446"},{"id":"petaluma","name":"Petaluma","address":"715 - J Southpoint Boulevard, Petaluma, CA 94954"},{"id":"pittsburg","name":"Pittsburg","address":"1399 Buchanan Road, Pittsburg, CA 94565"},{"id":"placerville","name":"Placerville","address":"2919 Cold Springs Road, Placerville, CA 95667"},{"id":"pleasanton","name":"Pleasanton","address":"6300 W Las Positas Blvd, Pleasanton, CA 94588"},{"id":"pomona","name":"Pomona","address":"1600 S Garey Avenue, Pomona, CA 91766"},{"id":"porterville","name":"Porterville","address":"329 E Olive Avenue, Porterville, CA 93257"},{"id":"poway","name":"Poway","address":"13461 Community Road, Poway, CA 92064"},{"id":"quincy","name":"Quincy","address":"1953 E Main Street Suite 3, Quincy, CA 95971"},{"id":"rancho-cucamonga","name":"Rancho Cucamonga","address":"8629 Hellman Avenue, Rancho Cucamonga, CA 91730"},{"id":"red-bluff","name":"Red Bluff","address":"675 Monroe Street, Red Bluff, CA 96080"},{"id":"redding","name":"Redding","address":"2135 Civic Center Drive, Redding, CA 96001"},{"id":"redlands","name":"Redlands","address":"1659 W Lugonia Avenue, Redlands, CA 92374"},{"id":"redwood-city","name":"Redwood City","address":"300 Brewster Avenue, Redwood City, CA 94063"},{"id":"reedley","name":"Reedley","address":"1890 E Dinuba Avenue, Reedley, CA 93654"},{"id":"ridgecrest","name":"Ridgecrest","address":"540A Perdew Avenue, Ridgecrest, CA 93555"},{"id":"riverside","name":"Riverside","address":"6280 Brockton Avenue, Riverside, CA 92506"},{"id":"riverside-east","name":"Riverside East","address":"6425 Sycamore Canyon Blvd, Riverside, CA 92507"},{"id":"rocklin","name":"Rocklin","address":"5245 South Grove, Rocklin, CA 95677"},{"id":"roseville","name":"Roseville","address":"7200 Galilee Road, Roseville, CA 95678"},{"id":"sacramento","name":"Sacramento","address":"4700 Broadway, Sacramento, CA 95820"},{"id":"sacramento-south","name":"Sacramento South","address":"7775 La Mancha Way, Sacramento, CA 95823"},{"id":"salinas","name":"Salinas","address":"260 E Laurel Drive, Salinas, CA 93906"},{"id":"san-andreas","name":"San Andreas","address":"745 Mountain Ranch Rd, San Andreas, CA 95249"},{"id":"san-bernardino","name":"San Bernardino","address":"1310 N Waterman Avenue, San Bernardino, CA 92404"},{"id":"san-clemente","name":"San Clemente","address":"2727 Via Cascadita, San Clemente, CA 92672"},{"id":"san-diego","name":"San Diego","address":"3960 Normal Street, San Diego, CA 92103"},{"id":"san-francisco","name":"San Francisco","address":"1377 Fell Street, San Francisco, CA 94117"},{"id":"san-jose","name":"San Jose","address":"111 W Alma Avenue, San Jose, CA 95110"},{"id":"san-luis-obispo","name":"San Luis Obispo","address":"3190 S Higuera Street, San Luis Obispo, CA 93401"},{"id":"san-marcos","name":"San Marcos","address":"590 Rancheros Dr, San Marcos, CA 92069"},{"id":"san-mateo","name":"San Mateo","address":"425 N Amphlett Boulevard, San Mateo, CA 94401"},{"id":"san-ysidro","name":"San Ysidro","address":"6111 Business Center Court, San Diego, CA 92154"},{"id":"santa-ana","name":"Santa Ana","address":"1330 E First Street, Santa Ana, CA 92701"},{"id":"santa-clara","name":"Santa Clara","address":"3665 Flora Vista Ave, Santa Clara, CA 95051"},{"id":"santa-maria","name":"Santa Maria","address":"2850 Santa Maria Way, Santa Maria, CA 93455"},{"id":"santa-monica","name":"Santa Monica","address":"2235 Colorado Avenue, Santa Monica, CA 90404"},{"id":"santa-paula","name":"Santa Paula","address":"250 W Harvard Boulevard A, Santa Paula, CA 93060"},{"id":"santa-rosa","name":"Santa Rosa","address":"2570 Corby Ave, Santa Rosa, CA 95407"},{"id":"santa-teresa","name":"Santa Teresa","address":"180 Martinvale Lane, San Jose, CA 95119"},{"id":"seaside","name":"Seaside","address":"1180 Canyon Del Rey Blvd, Seaside, CA 93955"},{"id":"shafter","name":"Shafter","address":"548 Walker Street, Shafter, CA 93263"},{"id":"simi-valley","name":"Simi Valley","address":"3855 D - Alamo Street, Simi Valley, CA 93063"},{"id":"sonora","name":"Sonora","address":"885 Morning Star Drive, Sonora, CA 95370"},{"id":"south-lake-tahoe","name":"South Lake Tahoe","address":"3344 B Lake Tahoe Boulevard, South Lake Tahoe, CA 96150"},{"id":"stockton","name":"Stockton","address":"55 South Lincoln Street, Stockton, CA 95203"},{"id":"susanville","name":"Susanville","address":"2615 Main Street, Susanville, CA 96130"},{"id":"taft","name":"Taft","address":"165 Center Street, Taft, CA 93268"},{"id":"temecula","name":"Temecula","address":"27851 Diaz Road, Temecula, CA 92590"},{"id":"thousand-oaks","name":"Thousand Oaks","address":"1810 E Avenida De Los Arboles, Thousand Oaks, CA 91362"},{"id":"torrance","name":"Torrance","address":"1785 W 220th Street, Torrance, CA 90501"},{"id":"tracy","name":"Tracy","address":"2785 Auto Plaza Drive, Tracy, CA 95304"},{"id":"truckee","name":"Truckee","address":"11357 Donner Pass Road Suite I, Truckee, CA 96162"},{"id":"tulare","name":"Tulare","address":"274 E Cross Avenue, Tulare, CA 93274"},{"id":"turlock","name":"Turlock","address":"825 E Monte Vista Avenue, Turlock, CA 95382"},{"id":"twentynine-palms","name":"Twentynine Palms","address":"3668 Adobe Road G-J, Twentynine Palms, CA 92277"},{"id":"ukiah","name":"Ukiah","address":"542 S Orchard Avenue, Ukiah, CA 95482"},{"id":"vacaville","name":"Vacaville","address":"621 Orange Drive, Vacaville, CA 95687"},{"id":"vallejo","name":"Vallejo","address":"200 Couch Street, Vallejo, CA 94590"},{"id":"van-nuys","name":"Van Nuys","address":"14920 Vanowen Street, Van Nuys, CA 91405"},{"id":"ventura","name":"Ventura","address":"4260 Market Street, Ventura, CA 93003"},{"id":"victorville","name":"Victorville","address":"14855 Corta Drive, Victorville, CA 92395"},{"id":"visalia","name":"Visalia","address":"1711 East Main Street, Visalia, CA 93292"},{"id":"watsonville","name":"Watsonville","address":"90 Alta Vista Avenue, Watsonville, CA 95076"},{"id":"weaverville","name":"Weaverville","address":"1511 Main Street, Weaverville, CA 96093"},{"id":"west-covina","name":"West Covina","address":"800 So Glendora Avenue, West Covina, CA 91790"},{"id":"west-hollywood","name":"West Hollywood","address":"936 N Formosa Ave, West Hollywood, CA 90046"},{"id":"westminster","name":"Westminster","address":"13700 Hoover Street, Westminster, CA 92683"},{"id":"whittier","name":"Whittier","address":"9338 S Painter Avenue, Whittier, CA 90605"},{"id":"willows","name":"Willows","address":"815 N Humboldt Avenue, Willows, CA 95988"},{"id":"winnetka","name":"Winnetka","address":"20725 Sherman Way, Winnetka, CA 91306"},{"id":"woodland","name":"Woodland","address":"1224 E. Gibson Road, Woodland, CA 95776"},{"id":"yreka","name":"Yreka","address":"1848 Fort Jones Rd, Yreka, CA 96097"},{"id":"yuba-city","name":"Yuba City","address":"1570 Poole Boulevard, Yuba City, CA 95993"}]
+
+    </script>
+    <script>
+/* California Road Test Coach. Vanilla JS, no build step beyond inlining. */
+(() => {
+  "use strict";
+
+  // ======================================================================
+  // Data
+  // ======================================================================
+  const BANK = JSON.parse(document.getElementById("bank-data").textContent);
+  const OFFICES = JSON.parse(document.getElementById("office-data").textContent);
+  const STORE_KEY = "rtc:v1";
+  const RESEARCH_TTL = 4 * 86400e3;
+  const ARM_IDS = ["pd-arm-left", "pd-arm-right", "pd-arm-stop"];
+
+  const PHASES = {
+    checkin: { label: "Check-in", say: "Hi, I'm your examiner today. Before we start, a couple of quick questions." },
+    predrive: { label: "Pre-drive check", say: "Before we drive, I'll ask you to show me some controls." },
+    exit: { label: "Leaving the lot", say: "Okay. When you're ready, let's leave the lot." },
+    drive: { label: "On the road", say: "Follow my directions. I'll tell you where to turn." },
+    pullover: { label: "Pull-over", say: "Now I'd like you to pull over." },
+    backing: { label: "Backing", say: "Next, some backing." },
+    return: { label: "Back to the DMV", say: "Good. Let's head back to the DMV." },
+  };
+
+  const TOPIC_HINTS = {
+    "four-way": "more four-way stop scenarios",
+    signals: "flashing lights and turn arrows",
+    pedestrians: "pedestrians, crosswalks and cyclists",
+    observation: "head checks and mirror checks",
+    lanes: "lane position, turns and spacing",
+    speed: "speed limits and following distance",
+    railroad: "railroad crossings",
+    special: "emergency vehicles, school buses and rain",
+    maneuvers: "pulling over, backing and the DMV lot",
+    "test-day": "test day rules and the examiner",
+  };
+
+  // ======================================================================
+  // Storage
+  // ======================================================================
+  const store = {
+    get(k, fallback) {
+      try {
+        const v = localStorage.getItem(k);
+        return v ? JSON.parse(v) : fallback;
+      } catch {
+        return fallback;
+      }
+    },
+    set(k, v) {
+      try {
+        localStorage.setItem(k, JSON.stringify(v));
+      } catch {
+        /* private mode or full: keep going in memory */
+      }
+    },
+    del(k) {
+      try {
+        localStorage.removeItem(k);
+      } catch {}
+    },
+  };
+  const defaults = () => ({
+    office: null,
+    testDate: "",
+    hasCar: null,
+    hasDriver: null,
+    voice: false,
+    stats: {},
+    review: {},
+    mocks: [],
+    extra: [],
+    predrive: {},
+    expectDone: false,
+  });
+  let S = Object.assign(defaults(), store.get(STORE_KEY, {}));
+  const save = () => store.set(STORE_KEY, S);
+
+  // Research state for the chosen office
+  let R = { state: "idle", data: null };
+  let researchToken = 0;
+
+  // Claude availability (grading + research). Checked once at load.
+  const AI = { on: false, failures: 0 };
+  AI.ready = fetchWithTimeout("/api/health", {}, 4000)
+    .then((r) => (r.ok ? r.json() : { ai: false }))
+    .then((j) => (AI.on = Boolean(j.ai)))
+    .catch(() => (AI.on = false));
+
+  // ======================================================================
+  // Utilities
+  // ======================================================================
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const esc = (s) =>
+    String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const md = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  const plain = (s) => String(s).replace(/\*\*/g, "");
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const shuffle = (a) => {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+  const slug = (t) =>
+    String(t)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 120);
+  const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
+  const sourceUrl = (s) => (s && BANK.sources[s]) || s || BANK.sources.handbook;
+  const sourceLabel = (url) => {
+    try {
+      const u = new URL(url);
+      if (u.hostname.endsWith("dmv.ca.gov")) return u.pathname.includes("handbook") ? "CA Driver Handbook" : "dmv.ca.gov";
+      return u.hostname.replace(/^www\./, "");
+    } catch {
+      return "Source";
+    }
+  };
+
+  function fetchWithTimeout(url, opts, ms) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), ms);
+    return fetch(url, { ...opts, signal: ctrl.signal }).finally(() => clearTimeout(t));
+  }
+  const postJSON = (url, body, ms) =>
+    fetchWithTimeout(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }, ms);
+
+  function h(tag, props, ...kids) {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(props || {})) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.className = v;
+      else if (k === "html") el.innerHTML = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids.flat(Infinity)) {
+      if (kid == null || kid === false) continue;
+      el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+    }
+    return el;
+  }
+  /** replaceChildren / append that skip null and false (the DOM would print "null"). */
+  const clean = (nodes) => nodes.flat(Infinity).filter((n) => n != null && n !== false);
+  const fill = (el, ...nodes) => el.replaceChildren(...clean(nodes));
+  const add = (el, ...nodes) => el.append(...clean(nodes));
+  const btn = (label, onclick, cls = "", extra = {}) =>
+    h("button", { type: "button", class: `btn ${cls}`.trim(), onclick, ...extra }, label);
+
+  const ICON_SPEAK =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+  const ICON_MIC =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M8 21h8" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+
+  function toast(msg) {
+    document.querySelectorAll(".toast").forEach((t) => t.remove());
+    const t = h("div", { class: "toast", role: "status" }, msg);
+    document.body.append(t);
+    setTimeout(() => t.remove(), 2800);
+  }
+
+  function openSheet(...content) {
+    closeSheet();
+    const close = () => closeSheet();
+    const backdrop = h(
+      "div",
+      { class: "sheet-backdrop", onclick: (e) => e.target === backdrop && close() },
+      h("div", { class: "sheet", role: "dialog", "aria-modal": "true" }, ...content, h("div", { class: "rule" }), btn("Close", close)),
+    );
+    document.body.append(backdrop);
+    $(".sheet button", backdrop)?.focus();
+  }
+  function closeSheet() {
+    document.querySelectorAll(".sheet-backdrop").forEach((b) => b.remove());
+  }
+  document.addEventListener("keydown", (e) => e.key === "Escape" && closeSheet());
+
+  // ======================================================================
+  // Voice
+  // ======================================================================
+  const synth = window.speechSynthesis;
+  const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let chosenVoice = null;
+  function pickVoice() {
+    const vs = synth ? synth.getVoices() : [];
+    chosenVoice =
+      vs.find((v) => /^en-US/i.test(v.lang) && /Samantha|Google US English|Aria|Jenny|Natural/i.test(v.name)) ||
+      vs.find((v) => /^en-US/i.test(v.lang)) ||
+      vs.find((v) => /^en/i.test(v.lang)) ||
+      null;
+  }
+  if (synth) {
+    pickVoice();
+    synth.onvoiceschanged = pickVoice;
+  }
+
+  let speakToken = 0;
+  /** Speak text. Only when voice mode is on, unless force (explicit "say that again"). */
+  function speak(text, { force = false, onend } = {}) {
+    const token = ++speakToken;
+    if (!synth || (!S.voice && !force)) return;
+    synth.cancel();
+    setTimeout(() => {
+      if (token !== speakToken) return;
+      const u = new SpeechSynthesisUtterance(plain(text));
+      if (chosenVoice) u.voice = chosenVoice;
+      u.lang = "en-US";
+      u.rate = 0.95;
+      if (onend) u.onend = () => token === speakToken && onend();
+      synth.speak(u);
+    }, 80);
+  }
+  function stopSpeaking() {
+    speakToken++;
+    if (synth) synth.cancel();
+  }
+
+  let rec = null;
+  /** Start speech recognition. onState(state, text) with state listening|hearing|idle|error. */
+  function listen(onText, onState) {
+    if (!Rec) return false;
+    stopListening();
+    const r = new Rec();
+    r.lang = "en-US";
+    r.interimResults = true;
+    r.continuous = false;
+    r.maxAlternatives = 1;
+    let finalText = "";
+    r.onresult = (e) => {
+      let interim = "";
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const res = e.results[i];
+        if (res.isFinal) finalText += res[0].transcript;
+        else interim += res[0].transcript;
+      }
+      onState("hearing", (finalText + " " + interim).trim());
+    };
+    r.onerror = (e) => onState("error", e.error);
+    r.onend = () => {
+      if (rec !== r) return;
+      rec = null;
+      onState("idle");
+      const t = finalText.trim();
+      if (t) onText(t);
+    };
+    try {
+      r.start();
+      rec = r;
+      onState("listening");
+      return true;
+    } catch {
+      return false;
+    }
+  }
+  function stopListening() {
+    const r = rec;
+    rec = null;
+    if (r) {
+      try {
+        r.abort();
+      } catch {}
+    }
+  }
+
+  function voiceCommand(text) {
+    const s = text
+      .toLowerCase()
+      .replace(/[^a-z' ]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (/^(please )?(say (that|it) again|repeat( that| it| the question)?|again|say again|what was the question|come again)( please)?$/.test(s))
+      return "again";
+    if (/^(explain( that| it)?|explain (the )?last( answer)?|why|explain please)$/.test(s)) return "explain";
+    if (s.split(" ").length <= 6 && /^(i (don'?t|do not) know|tell me|no idea|i'?m not sure|not sure|skip)/.test(s)) return "dontknow";
+    if (/^(ok(ay)? )?(next|next question|continue|go on|move on)( please)?$/.test(s)) return "next";
+    return null;
+  }
+
+  // ======================================================================
+  // Grading
+  // ======================================================================
+  const STOP = new Set(
+    "a an the to of and or in on at for is are be it its you your i my me we they them their that this then if as by with from do does did so just will would should can could must am was were been being has have had very really".split(
+      " ",
+    ),
+  );
+  const NUM = { one: "1", two: "2", three: "3", four: "4", five: "5", ten: "10", fifteen: "15", eighteen: "18", twenty: "20", hundred: "100" };
+  const SYN = {
+    vehicle: "car", automobile: "car", halt: "stop", ped: "person", pedestrian: "person", people: "person",
+    walker: "person", someone: "person", somebody: "person", look: "check", glance: "check", scan: "check",
+    blinker: "signal", indicator: "signal", indicate: "signal", proceed: "go", continu: "go", slowly: "slow",
+    slower: "slow", let: "yield", allow: "yield", wait: "yield", gap: "gap", stationary: "stop", complete: "full",
+    behind: "before", back: "behind", mph: "mph", miles: "mph", feet: "ft", foot: "ft", rearview: "mirror",
+  };
+  function stem(w) {
+    w = NUM[w] || w;
+    if (SYN[w]) return SYN[w];
+    if (w.length > 5 && w.endsWith("ing")) w = w.slice(0, -3);
+    else if (w.length > 4 && w.endsWith("ed")) w = w.slice(0, -2);
+    else if (w.length > 3 && w.endsWith("s") && !w.endsWith("ss")) w = w.slice(0, -1);
+    return SYN[w] || w;
+  }
+  function words(s) {
+    return String(s)
+      .toLowerCase()
+      .replace(/twenty[- ]five/g, "25")
+      .replace(/[^a-z0-9' ]+/g, " ")
+      .split(/\s+/)
+      .map((w) => w.replace(/'/g, ""))
+      .filter((w) => w && !STOP.has(w))
+      .map(stem);
+  }
+  function localGrade(item, answer) {
+    const have = new Set(words(answer));
+    const hits = item.keyPoints.map((kp) => {
+      const ws = words(kp);
+      if (!ws.length) return true;
+      return ws.filter((w) => have.has(w)).length / ws.length >= 0.5;
+    });
+    const got = hits.filter(Boolean).length;
+    const verdict = got === hits.length ? "correct" : got > 0 ? "partly" : "incorrect";
+    const missing = item.keyPoints.filter((_, i) => !hits[i]);
+    const feedback =
+      verdict === "correct"
+        ? "That covers the key points."
+        : verdict === "partly"
+          ? `Good start. Missing: ${missing.join("; ")}.`
+          : `Key points: ${item.keyPoints.join("; ")}.`;
+    return { verdict, feedback, offline: true };
+  }
+  async function grade(item, answer) {
+    if (AI.on && AI.failures < 3) {
+      try {
+        const r = await postJSON(
+          "/api/grade",
+          { prompt: item.prompt, modelAnswer: item.modelAnswer, keyPoints: item.keyPoints, answer },
+          15000,
+        );
+        if (r.ok) {
+          AI.failures = 0;
+          const j = await r.json();
+          if (["correct", "partly", "incorrect"].includes(j.verdict)) return { ...j, offline: false };
+        }
+        AI.failures++;
+      } catch {
+        AI.failures++;
+      }
+    }
+    return localGrade(item, answer);
+  }
+
+  // ======================================================================
+  // Items and progress
+  // ======================================================================
+  const PREDRIVE_ITEMS = BANK.predrive.map((p) => ({ ...p, phase: "predrive" }));
+  const localQuestions = () => (R.state === "ready" && R.data?.questions) || [];
+  const allItems = () => [...BANK.items, ...PREDRIVE_ITEMS, ...localQuestions(), ...S.extra];
+  const byId = (id) => allItems().find((i) => i.id === id) || S.review[id]?.item || null;
+  const usableItems = (list) => list.filter((i) => i && i.prompt && i.modelAnswer && i.keyPoints?.length);
+
+  function choicesFor(item) {
+    let wrong = (item.distractors || []).filter(Boolean).slice(0, 2);
+    if (wrong.length < 2) {
+      const others = shuffle(
+        allItems()
+          .filter((i) => i.id !== item.id && i.category === item.category && i.modelAnswer !== item.modelAnswer)
+          .map((i) => i.modelAnswer),
+      );
+      wrong = wrong.concat(others).slice(0, 2);
+    }
+    return shuffle([{ text: item.modelAnswer, right: true }, ...wrong.map((text) => ({ text, right: false }))]);
+  }
+
+  /** Save the outcome of one answer: stats, plus the weak-spot review set. */
+  function record(item, verdict) {
+    const st = (S.stats[item.id] ||= { seen: 0, right: 0, last: null, cat: item.category });
+    st.seen++;
+    if (verdict === "correct") st.right++;
+    st.last = verdict;
+    const snapshot = BANK.items.some((i) => i.id === item.id) || PREDRIVE_ITEMS.some((i) => i.id === item.id) ? undefined : item;
+    if (verdict === "correct") {
+      const r = S.review[item.id];
+      if (r) {
+        r.streak++;
+        if (r.streak >= 2) delete S.review[item.id];
+      }
+    } else {
+      S.review[item.id] = { streak: 0, item: snapshot };
+    }
+    save();
+  }
+
+  function weight(i) {
+    let w = 1;
+    if (i.highRisk) w += 2;
+    if (i.severity === "critical") w += 1;
+    if (i.officeSpecific) w += 2;
+    if (S.review[i.id]) w += 2;
+    return w;
+  }
+  function weightedPick(pool, n) {
+    const p = pool.slice();
+    const out = [];
+    while (out.length < n && p.length) {
+      const total = p.reduce((s, i) => s + weight(i), 0);
+      let r = Math.random() * total;
+      let k = 0;
+      for (; k < p.length - 1; k++) {
+        r -= weight(p[k]);
+        if (r <= 0) break;
+      }
+      out.push(p.splice(k, 1)[0]);
+    }
+    return out;
+  }
+
+  function categoryStats() {
+    const out = {};
+    for (const key of Object.keys(BANK.categories)) out[key] = { seen: 0, right: 0, total: 0 };
+    for (const i of allItems()) if (out[i.category]) out[i.category].total++;
+    for (const [id, st] of Object.entries(S.stats)) {
+      const cat = byId(id)?.category || st.cat;
+      if (out[cat]) {
+        out[cat].seen += st.seen;
+        out[cat].right += st.right;
+      }
+    }
+    return out;
+  }
+  function weakestCategory() {
+    const cs = categoryStats();
+    let worst = null;
+    for (const [k, v] of Object.entries(cs)) {
+      if (k === "pre-drive" || !v.seen) continue;
+      const rate = v.right / v.seen;
+      if (!worst || rate < worst.rate) worst = { k, rate };
+    }
+    return worst?.k || "four-way";
+  }
+
+  // ======================================================================
+  // Research (background)
+  // ======================================================================
+  const officeKey = (o) => slug(`${o.name} ${o.address || ""}`);
+
+  async function startResearch(force = false) {
+    const o = S.office;
+    if (!o) return;
+    const key = "rtc:research:" + officeKey(o);
+    const token = ++researchToken;
+    const cached = store.get(key);
+    if (!force && cached && Date.now() - cached.at < RESEARCH_TTL) {
+      R = { state: "ready", data: cached.data };
+      updateChip();
+      return;
+    }
+    R = { state: "working", data: null };
+    updateChip();
+    for (let attempt = 0; attempt < 20; attempt++) {
+      let r;
+      try {
+        r = await postJSON("/api/research", { office: { name: o.name, address: o.address || "" } }, 295000);
+      } catch {
+        break;
+      }
+      if (token !== researchToken) return;
+      if (r.status === 202) {
+        await sleep(15000);
+        if (token !== researchToken) return;
+        continue;
+      }
+      if (!r.ok) break;
+      const j = await r.json().catch(() => null);
+      if (j?.status === "unavailable") {
+        R = { state: "off", data: null };
+        updateChip();
+        refreshScreens();
+        return;
+      }
+      if (!j?.data) break;
+      store.set(key, { at: Date.now(), data: j.data });
+      R = { state: "ready", data: j.data };
+      updateChip();
+      toast(j.data.questions?.length ? `Local tips ready: ${plural(j.data.questions.length, "local question")} added` : "Local tips ready");
+      refreshScreens();
+      return;
+    }
+    if (token === researchToken) {
+      R = { state: "failed", data: null };
+      updateChip();
+      refreshScreens();
+    }
+  }
+  function refreshScreens() {
+    if (["home", "local", "drills"].includes(current.name)) render(current.name, current.arg, false);
+  }
+
+  const chip = $("#status");
+  function updateChip() {
+    if (!S.office) {
+      chip.hidden = true;
+      return;
+    }
+    const text = {
+      working: "Researching your test area...",
+      ready: "Local tips ready",
+      failed: "Using general content",
+      off: "Built-in content",
+      idle: "",
+    }[R.state];
+    chip.hidden = !text;
+    chip.textContent = text;
+    chip.dataset.state = R.state;
+    chip.setAttribute("aria-label", R.state === "ready" ? "Local tips ready. Open them." : text);
+  }
+  chip.addEventListener("click", () => {
+    if (R.state === "ready" || R.state === "failed" || R.state === "off") go("local");
+  });
+
+  // ======================================================================
+  // Router
+  // ======================================================================
+  const main = $("#main");
+  let current = { name: "", arg: null };
+  const screens = {};
+
+  function mount(...nodes) {
+    stopSpeaking();
+    stopListening();
+    closeSheet();
+    main.replaceChildren(h("section", { class: "screen" }, ...nodes));
+    window.scrollTo(0, 0);
+    main.focus({ preventScroll: true });
+  }
+  function render(name, arg, push = true) {
+    if (!S.office && name !== "setup") name = "setup";
+    current = { name, arg };
+    if (push) history.pushState({ name }, "", name === "home" ? location.pathname : `#${name}`);
+    screens[name](arg);
+  }
+  const go = (name, arg) => render(name, arg, true);
+  window.addEventListener("popstate", (e) => {
+    const name = e.state?.name || (location.hash.slice(1) in screens ? location.hash.slice(1) : "home");
+    // Never resume half a session from history; sessions restart from their menu.
+    render(["session"].includes(name) ? "home" : name, null, false);
+  });
+  $("#brand").addEventListener("click", () => go(S.office ? "home" : "setup"));
+
+  const voiceBtn = $("#voice");
+  function updateVoiceBtn() {
+    voiceBtn.setAttribute("aria-pressed", String(S.voice));
+    voiceBtn.textContent = S.voice ? "Voice on" : "Voice off";
+  }
+  voiceBtn.addEventListener("click", () => {
+    S.voice = !S.voice;
+    save();
+    updateVoiceBtn();
+    if (S.voice) {
+      if (!synth) toast("This browser cannot speak. Text still works.");
+      else speak(Rec ? "Voice on. Tap the microphone to answer out loud." : "Voice on. I'll read the questions. Type your answers.");
+    } else {
+      stopSpeaking();
+      stopListening();
+    }
+  });
+
+  // ======================================================================
+  // Screen: setup
+  // ======================================================================
+  screens.setup = () => {
+    let picked = S.office;
+    const draft = { testDate: S.testDate, hasCar: S.hasCar, hasDriver: S.hasDriver };
+
+    const search = h("input", {
+      class: "input",
+      id: "office-search",
+      type: "search",
+      autocomplete: "off",
+      placeholder: "Type a city or office, e.g. San Mateo",
+      "aria-controls": "office-results",
+    });
+    const results = h("ul", { class: "results", id: "office-results", hidden: true });
+    const pickedBox = h("div");
+    const startBtn = btn("Start learning", start, "primary", { disabled: !picked });
+
+    function showPicked() {
+      fill(pickedBox, );
+      if (!picked) {
+        search.hidden = false;
+        startBtn.disabled = true;
+        return;
+      }
+      search.hidden = true;
+      results.hidden = true;
+      startBtn.disabled = false;
+      add(pickedBox, 
+        h(
+          "div",
+          { class: "picked" },
+          h("strong", {}, picked.name + (picked.custom ? "" : " DMV")),
+          h("div", { class: "small muted" }, picked.address || "Address not listed"),
+        ),
+        h("button", {
+          type: "button",
+          class: "btn quiet",
+          onclick: () => {
+            picked = null;
+            showPicked();
+            search.focus();
+          },
+        }, "Change office"),
+      );
+    }
+
+    function filter() {
+      const q = search.value.trim().toLowerCase();
+      fill(results, );
+      if (!q) {
+        results.hidden = true;
+        return;
+      }
+      const terms = q.split(/\s+/);
+      const hits = OFFICES.filter((o) => {
+        const hay = `${o.name} ${o.address}`.toLowerCase();
+        return terms.every((t) => hay.includes(t));
+      })
+        .sort((a, b) => (a.name.toLowerCase().startsWith(q) ? -1 : 0) - (b.name.toLowerCase().startsWith(q) ? -1 : 0))
+        .slice(0, 8);
+      for (const o of hits) {
+        add(results, 
+          h("li", {}, h("button", { type: "button", onclick: () => ((picked = o), showPicked(), startBtn.focus()) }, h("strong", {}, o.name), h("span", {}, o.address))),
+        );
+      }
+      add(results, 
+        h(
+          "li",
+          {},
+          h(
+            "button",
+            {
+              type: "button",
+              onclick: () => {
+                picked = { id: "custom-" + slug(search.value), name: search.value.trim(), address: "", custom: true };
+                showPicked();
+              },
+            },
+            h("strong", {}, `Use "${search.value.trim()}"`),
+            h("span", {}, hits.length ? "Not in the list? Use what I typed." : "No match in the list. Use what I typed."),
+          ),
+        ),
+      );
+      results.hidden = false;
+    }
+    search.addEventListener("input", filter);
+    search.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        $("button", results)?.click();
+      }
+    });
+
+    const date = h("input", { class: "input", type: "date", id: "test-date", value: draft.testDate || "" });
+    date.addEventListener("change", () => (draft.testDate = date.value));
+
+    function yesNo(key, label) {
+      const group = h("div", { class: "choice-group", role: "group", "aria-label": label });
+      const mk = (val, text) =>
+        h(
+          "button",
+          {
+            type: "button",
+            "aria-pressed": String(draft[key] === val),
+            onclick: (e) => {
+              draft[key] = val;
+              group.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", "false"));
+              e.currentTarget.setAttribute("aria-pressed", "true");
+            },
+          },
+          text,
+        );
+      group.append(mk(true, "Yes"), mk(false, "Not yet"));
+      return h("div", {}, h("p", { class: "field" , style: "font-weight:700;margin-bottom:6px" }, label), group);
+    }
+
+    function start() {
+      if (!picked) return;
+      const changed = !S.office || officeKey(S.office) !== officeKey(picked);
+      S.office = { id: picked.id, name: picked.name, address: picked.address || "", custom: Boolean(picked.custom) };
+      Object.assign(S, draft);
+      save();
+      if (changed || R.state === "idle" || R.state === "failed") startResearch();
+      go(S.expectDone ? "home" : "expect");
+    }
+
+    mount(
+      h("span", { class: "kicker" }, "California DMV drive test"),
+      h("h1", { class: "title" }, "Which DMV office is your road test at?"),
+      h("p", { class: "lede" }, "Pick it and start. I'll look up your local test area in the background."),
+      h("label", { class: "field", for: "office-search" }, "DMV office"),
+      search,
+      results,
+      pickedBox,
+      h("div", { class: "rule" }),
+      h("div", { class: "stack" },
+        h("div", {}, h("label", { class: "field", for: "test-date" }, "Test date ", h("span", { class: "muted small" }, "(optional)")), date),
+        yesNo("hasCar", "Do you have a car for the test?"),
+        yesNo("hasDriver", "Do you have a licensed driver (18+) to bring you?"),
+      ),
+      h("div", { class: "rule" }),
+      startBtn,
+    );
+    showPicked();
+    if (!picked) search.focus();
+  };
+
+  // ======================================================================
+  // Screen: home
+  // ======================================================================
+  screens.home = () => {
+    const reviewN = Object.keys(S.review).length;
+    const days = S.testDate ? Math.ceil((new Date(S.testDate + "T09:00") - new Date()) / 86400e3) : null;
+    const last = S.mocks[S.mocks.length - 1];
+
+    const notes = [];
+    if (S.hasCar === false)
+      notes.push("You need a safe, insured, registered car for the test. A driving school car is one option.");
+    if (S.hasDriver === false)
+      notes.push("You need a licensed driver, 18 or older, to bring you. A permit holder cannot drive there alone.");
+
+    const item = (n, label, sub, meta, to) =>
+      h(
+        "li",
+        {},
+        h(
+          "button",
+          { type: "button", onclick: to },
+          h("span", { class: "menu-num" }, n),
+          h("span", {}, h("span", { class: "menu-label" }, label), h("span", { class: "menu-sub" }, sub)),
+          h("span", { class: "menu-meta" }, meta || ""),
+        ),
+      );
+
+    mount(
+      h("span", { class: "kicker" }, S.office.name + (S.office.custom ? "" : " DMV")),
+      h(
+        "h1",
+        { class: "title" },
+        days != null && days >= 0 ? (days === 0 ? "Test day. You've got this." : `${days} day${days === 1 ? "" : "s"} to your test`) : "Let's practise",
+      ),
+      h("p", { class: "lede" }, "Mocks work best: one question at a time, like the examiner."),
+      notes.length ? h("div", { class: "stack", style: "margin-bottom:20px" }, notes.map((n) => h("p", { class: "note" }, n))) : null,
+      h(
+        "ul",
+        { class: "menu" },
+        item("01", "What to expect", "Test day, step by step", S.expectDone ? "Done" : "Start here", () => go("expect")),
+        item("02", "Pre-drive drill", "Show me your hazard lights...", predriveMeta(), () => go("predrive")),
+        item("03", "Rule drills", "Scenario questions by topic", "", () => go("drills")),
+        item("04", "Full mock test", "The examiner, start to finish", last ? (last.pass ? "Last: pass" : "Last: fail") : "", () => go("mock")),
+        item("05", "Weak-spot review", "Until right twice in a row", reviewN ? `${reviewN} to fix` : "", () => go("review")),
+        item("06", "Readiness", "Your summary", "", () => go("summary")),
+        item("07", "Local tips", localSub(), R.state === "ready" ? "Ready" : "", () => go("local")),
+      ),
+      h("div", { class: "rule" }),
+      h("button", { type: "button", class: "btn quiet", onclick: () => go("setup") }, "Change office or test details"),
+    );
+  };
+  function predriveMeta() {
+    const fast = BANK.predrive.filter((p) => S.predrive[p.id] === "fast").length;
+    return fast ? `${fast}/${BANK.predrive.length} fast` : "";
+  }
+  function localSub() {
+    return {
+      working: "Researching your area now...",
+      ready: "Routes, hazards and sources",
+      failed: "Not available right now",
+      off: "Not available right now",
+      idle: "Routes, hazards and sources",
+    }[R.state];
+  }
+
+  // ======================================================================
+  // Screen: what to expect
+  // ======================================================================
+  screens.expect = () => {
+    const cards = [
+      ...BANK.expect.map((c) => ({ ...c, kicker: "What to expect" })),
+      ...BANK.mistakes.map((c) => ({ ...c, kicker: "Mistakes other people made" })),
+    ];
+    let i = 0;
+    const host = h("div");
+
+    function show() {
+      const c = cards[i];
+      const sayText = c.title + ". " + c.lines.join(" ");
+      fill(host, 
+        h("div", { class: "progress" }, `${i + 1} / ${cards.length}`, h("div", { class: "progress-bar" }, h("span", { style: `width:${((i + 1) / cards.length) * 100}%` }))),
+        h("span", { class: "kicker" }, c.kicker),
+        h(
+          "div",
+          { class: "card" },
+          h("h2", { class: "card-title", id: "card-title", tabindex: "-1" }, c.title),
+          c.lines.map((l) => h("p", { html: md(l) })),
+          c.source ? h("a", { class: "source", href: sourceUrl(c.source), target: "_blank", rel: "noopener" }, "Source: " + sourceLabel(sourceUrl(c.source))) : null,
+        ),
+        h("div", { style: "height:14px" }),
+        h("button", { type: "button", class: "btn again", onclick: () => speak(sayText, { force: true }), html: ICON_SPEAK + "<span>Say that again</span>" }),
+        h("div", { style: "height:10px" }),
+        i < cards.length - 1
+          ? h("div", { class: "row" }, i > 0 ? btn("Back", () => (i--, show()), "ghost") : null, btn("Next", () => (i++, show()), "primary"))
+          : h(
+              "div",
+              { class: "stack" },
+              btn("Start the pre-drive drill", () => go("predrive"), "primary"),
+              btn("Back to menu", () => go("home"), "ghost"),
+            ),
+      );
+      if (i === cards.length - 1 && !S.expectDone) {
+        S.expectDone = true;
+        save();
+      }
+      $("#card-title", host)?.focus();
+      speak(sayText);
+    }
+    mount(h("h1", { class: "sr-only" }, "What to expect"), host);
+    show();
+  };
+
+  // ======================================================================
+  // Screen: pre-drive drill
+  // ======================================================================
+  screens.predrive = () => {
+    const host = h("div");
+    const items = BANK.predrive;
+    let i = -1;
+    const results = {};
+
+    function intro() {
+      fill(host, 
+        h("span", { class: "kicker" }, "Pre-drive drill"),
+        h("h1", { class: "title" }, "Show me the controls"),
+        h("p", { class: "lede" }, "Do this sitting in the car you will test in. Each prompt: find it, use it, say how fast you were."),
+        h("div", { class: "card stack" }, BANK.predriveTips.map((t) => h("p", { html: md(t) }))),
+        h("div", { style: "height:14px" }),
+        h(
+          "details",
+          { class: "fold" },
+          h("summary", {}, "Vehicle checks the examiner does first"),
+          h("div", {}, h("p", { class: "small muted", style: "margin-bottom:8px" }, "If the car fails these, the test is rescheduled."), h("ul", { class: "plain" }, BANK.vehicleCheck.map((v) => h("li", {}, v)))),
+        ),
+        h("div", { style: "height:14px" }),
+        btn("Start", () => ((i = 0), step()), "primary"),
+      );
+      speak("Pre-drive drill. Sit in the car you will test in. I'll ask you to find each control.");
+    }
+
+    function step() {
+      if (i >= items.length) return done();
+      const p = items[i];
+      const answer = h("div");
+      const rate = (val) => {
+        results[p.id] = val;
+        S.predrive[p.id] = val;
+        save();
+        const msg = val === "fast" ? "Good." : val === "slow" ? "Practise this one until it's under two seconds." : "Here's how.";
+        fill(answer, 
+          h(
+            "div",
+            { class: "verdict", "data-v": val === "fast" ? "correct" : val === "slow" ? "partly" : "dontknow" },
+            h("p", { class: "verdict-head" }, val === "fast" ? "Good" : val === "slow" ? "Keep practising" : "Here's how"),
+            h("p", {}, p.howTo),
+          ),
+          h("div", { style: "height:12px" }),
+          btn(i < items.length - 1 ? "Next" : "Finish", () => (i++, step()), "primary"),
+        );
+        $(".btn.primary", answer).focus();
+        speak(`${msg} ${p.howTo}`);
+      };
+      fill(host, 
+        h("div", { class: "progress" }, `Item ${p.item}  ·  ${i + 1} / ${items.length}`, h("div", { class: "progress-bar" }, h("span", { style: `width:${((i + 1) / items.length) * 100}%` }))),
+        h("span", { class: "kicker" }, p.label),
+        h("p", { class: "q-prompt", id: "q-prompt", tabindex: "-1" }, p.locate),
+        h("div", { style: "height:16px" }),
+        h("button", { type: "button", class: "btn again", onclick: () => sayAgain(p.locate), html: ICON_SPEAK + "<span>Say that again</span>" }),
+        h("div", { style: "height:16px" }),
+        answer,
+      );
+      add(answer, 
+        h(
+          "div",
+          { class: "stack" },
+          btn("Done in under 2 seconds", () => rate("fast"), "primary"),
+          btn("Done, but slow", () => rate("slow")),
+          btn("Not sure, tell me", () => rate("unsure"), "ghost"),
+        ),
+      );
+      $("#q-prompt", host).focus();
+      speak(p.locate);
+    }
+
+    function done() {
+      const slow = items.filter((p) => results[p.id] && results[p.id] !== "fast");
+      fill(host, 
+        h("span", { class: "kicker" }, "Pre-drive drill"),
+        h("h1", { class: "title" }, slow.length ? `${items.length - slow.length} of ${items.length} were quick` : "All quick. Nice."),
+        slow.length
+          ? h("div", { class: "card" }, h("p", { style: "font-weight:700;margin-bottom:8px" }, "Practise these in the car:"), h("ul", { class: "plain" }, slow.map((p) => h("li", {}, p.label))))
+          : h("p", { class: "lede" }, "Do it once more on test day morning."),
+        h("div", { style: "height:16px" }),
+        h(
+          "div",
+          { class: "stack" },
+          btn("Quiz me on arm signals", () => startDrill(ARM_IDS.map(byId), "Arm signals"), "primary"),
+          btn("Run the drill again", () => ((i = 0), step())),
+          btn("Back to menu", () => go("home"), "ghost"),
+        ),
+      );
+      speak(slow.length ? `Practise these: ${slow.map((p) => p.label).join(", ")}.` : "All quick. Nice.");
+    }
+
+    mount(host);
+    intro();
+  };
+
+  // ======================================================================
+  // Screen: drills menu
+  // ======================================================================
+  screens.drills = () => {
+    const cs = categoryStats();
+    const rows = [];
+    const row = (label, sub, meta, onclick) =>
+      h("li", {}, h("button", { type: "button", onclick }, h("span", { class: "menu-num" }, ""), h("span", {}, h("span", { class: "menu-label" }, label), h("span", { class: "menu-sub" }, sub)), h("span", { class: "menu-meta" }, meta)));
+
+    rows.push(row("Mixed, high-risk first", "10 questions, weighted to what fails people", "", () => startDrill(weightedPick(usableItems(allItems().filter((i) => i.phase !== "predrive")), 10), "Mixed drill")));
+    if (localQuestions().length)
+      rows.push(row("Your test area", plural(localQuestions().length, "local question"), "Local", () => startDrill(shuffle(usableItems(localQuestions().slice())), "Local questions")));
+    if (S.extra.length) rows.push(row("Extra questions", `${S.extra.length} you pulled in`, "", () => startDrill(shuffle(usableItems(S.extra.slice())), "Extra questions")));
+    for (const [key, label] of Object.entries(BANK.categories)) {
+      const items = usableItems(allItems().filter((i) => i.category === key));
+      if (!items.length) continue;
+      const c = cs[key];
+      const meta = c.seen ? `${Math.round((c.right / c.seen) * 100)}%` : "";
+      rows.push(row(label, plural(items.length, "question"), meta, () => startDrill(shuffle(items.slice()).slice(0, 10), label)));
+    }
+
+    mount(
+      h("span", { class: "kicker" }, "Rule drills"),
+      h("h1", { class: "title" }, "Pick a topic"),
+      h("p", { class: "lede" }, "One scenario at a time. Answer in your own words, out loud or typed."),
+      h("ul", { class: "menu" }, rows),
+      h("div", { class: "rule" }),
+      findMorePanel(),
+    );
+  };
+
+  function findMorePanel() {
+    const input = h("input", { class: "input", id: "more-topic", value: TOPIC_HINTS[weakestCategory()] || "" });
+    const status = h("p", { class: "small muted", "aria-live": "polite" });
+    const go_ = btn("Find more questions", run);
+    async function run() {
+      const topic = input.value.trim();
+      if (topic.length < 3) return input.focus();
+      go_.disabled = true;
+      status.textContent = "Searching for sourced questions. This can take a minute.";
+      try {
+        const r = await postJSON("/api/more", { topic, office: S.office?.name || "" }, 175000);
+        if (r.status === 503) throw new Error("off");
+        if (r.status === 429) throw new Error("limit");
+        if (!r.ok) throw new Error("fail");
+        const j = await r.json();
+        const seen = new Set(allItems().map((i) => i.prompt.toLowerCase()));
+        const fresh = usableItems(j.questions || []).filter((q) => !seen.has(q.prompt.toLowerCase()));
+        if (!fresh.length) {
+          status.textContent = "Nothing new found for that topic. Try wording it differently.";
+          return;
+        }
+        S.extra.push(...fresh);
+        save();
+        fill(status, `Added ${plural(fresh.length, "question")}. `, h("button", { type: "button", class: "btn quiet", style: "display:inline;min-height:0;padding:0", onclick: () => startDrill(fresh, "New questions") }, "Drill them now"));
+      } catch (e) {
+        status.textContent =
+          e.message === "off"
+            ? "Finding new questions needs the online helper, which is off. The built-in questions still work."
+            : e.message === "limit"
+              ? "That's the limit for now. Try again in an hour."
+              : "Could not reach the question finder. The built-in questions still work.";
+      } finally {
+        go_.disabled = false;
+      }
+    }
+    return h(
+      "div",
+      { class: "stack" },
+      h("label", { class: "field", for: "more-topic" }, "Want more on a weak topic?"),
+      input,
+      go_,
+      status,
+    );
+  }
+
+  // ======================================================================
+  // Question engine (drills, mock, review)
+  // ======================================================================
+  let lastExplain = null; // { prompt, head, feedback, modelAnswer, source }
+
+  function sayAgain(text) {
+    const el = $("#q-prompt");
+    if (el) {
+      el.classList.remove("flash");
+      void el.offsetWidth;
+      el.classList.add("flash");
+    }
+    speak(text, { force: true });
+  }
+
+  function explainLast() {
+    if (!lastExplain) return;
+    const e = lastExplain;
+    openSheet(
+      h("span", { class: "kicker" }, "Last answer"),
+      h("p", { style: "font-weight:700;margin-bottom:10px" }, e.prompt),
+      h("p", { class: "verdict-head", style: "font-size:20px" }, e.head),
+      e.feedback ? h("p", {}, e.feedback) : null,
+      h("div", { class: "model" }, h("p", { class: "model-label" }, "Model answer"), h("p", {}, e.modelAnswer)),
+      e.source ? h("a", { class: "source", href: sourceUrl(e.source), target: "_blank", rel: "noopener" }, "Source: " + sourceLabel(sourceUrl(e.source))) : null,
+    );
+    speak(`${e.head}. ${e.feedback || ""} ${e.modelAnswer}`, { force: true });
+  }
+
+  /**
+   * cfg: {
+   *   kicker, items, mode: "drill" | "mock" | "review",
+   *   header(ctx) -> node|null      shown above each question (tally, progress)
+   *   intro(item, prev) -> string   examiner line before the question (mock phases)
+   *   commit(item, verdict, ctx)    called when the learner moves on
+   *   done(ctx)
+   * }
+   */
+  function runSession(cfg) {
+    const ctx = { queue: usableItems(cfg.items.slice()), results: [], asked: 0, total: 0, prev: null };
+    ctx.total = ctx.queue.length;
+    // Free text when Claude grading is up, multiple choice when it is not.
+    // choicePref remembers the learner's own switch for the rest of the session.
+    let choicePref = null;
+
+    mount(h("div", { id: "session" }));
+    next();
+
+    function next() {
+      const item = ctx.queue.shift();
+      if (!item) return cfg.done(ctx);
+      ask(item, {});
+    }
+
+    function ask(item, opts) {
+      stopListening();
+      const host = $("#session");
+      const quick = Boolean(opts.quick);
+      const introLine = !quick && cfg.intro ? cfg.intro(item, ctx.prev) : null;
+      const answerBox = h("div", { class: "stack" });
+      const explainBtn = btn("Explain the last answer", explainLast, "ghost", { disabled: !lastExplain });
+      const tags = [
+        quick ? h("span", { class: "tag" }, "Quick check") : null,
+        h("span", { class: "tag" }, BANK.categories[item.category] || item.category),
+        item.severity === "critical" ? h("span", { class: "tag critical" }, "Automatic fail") : null,
+        item.officeSpecific ? h("span", { class: "tag local" }, "Your test area") : null,
+      ];
+
+      fill(host, 
+        cfg.header ? cfg.header(ctx, item) : null,
+        introLine ? h("p", { class: "note", style: "margin-bottom:14px" }, "Examiner: ", h("em", {}, introLine)) : null,
+        h("div", { class: "q-meta" }, tags),
+        h("p", { class: "q-prompt", id: "q-prompt", tabindex: "-1" }, item.prompt),
+        h("div", { style: "height:16px" }),
+        h("button", { type: "button", class: "btn again", onclick: () => sayAgain(spoken()), html: ICON_SPEAK + "<span>Say that again</span>" }),
+        h("div", { style: "height:10px" }),
+        explainBtn,
+        h("div", { style: "height:18px" }),
+        answerBox,
+      );
+      $("#q-prompt", host).focus({ preventScroll: true });
+
+      let choices = null;
+      function spoken() {
+        if (!choices) return item.prompt;
+        return `${item.prompt} ${choices.map((c, i) => `${"ABC"[i]}. ${c.text}`).join(" ")}`;
+      }
+
+      function renderAnswer() {
+        fill(answerBox, );
+        if (useChoicesNow()) {
+          choices ||= choicesFor(item);
+          const list = h(
+            "ol",
+            { class: "choices", "aria-label": "Choices" },
+            choices.map((c, i) =>
+              h("li", {}, h("button", { type: "button", onclick: (e) => pick(c, e.currentTarget, list) }, h("b", {}, "ABC"[i]), h("span", {}, c.text))),
+            ),
+          );
+          add(answerBox, 
+            list,
+            h("button", { type: "button", class: "btn quiet", onclick: dontKnow }, "I don't know, tell me"),
+            quick && opts.forceChoices ? null : h("button", { type: "button", class: "btn quiet", onclick: () => ((choicePref = false), renderAnswer()) }, "Type my answer instead"),
+          );
+        } else {
+          choices = null;
+          const ta = h("textarea", { class: "input", id: "answer", rows: "3", placeholder: "Say it how you'd explain it to the examiner", "aria-label": "Your answer" });
+          ta.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
+              e.preventDefault();
+              submit(ta.value);
+            }
+          });
+          const mic = Rec
+            ? h("button", { type: "button", class: "btn mic", "aria-pressed": "false", onclick: () => toggleMic(ta, mic), html: ICON_MIC + "<span>Speak</span>" })
+            : null;
+          add(answerBox, 
+            ta,
+            h("div", { class: "row" }, mic, btn("Check answer", () => submit(ta.value), "primary")),
+            h("button", { type: "button", class: "btn quiet", onclick: dontKnow }, "I don't know, tell me"),
+            h("button", { type: "button", class: "btn quiet", onclick: () => ((choicePref = true), renderAnswer()) }, "Show choices instead"),
+          );
+        }
+      }
+      function useChoicesNow() {
+        if (quick && opts.forceChoices) return true;
+        if (choicePref !== null) return choicePref;
+        return !(AI.on && AI.failures < 3);
+      }
+
+      function toggleMic(ta, mic) {
+        if (rec) {
+          stopListening();
+          mic.setAttribute("aria-pressed", "false");
+          mic.lastElementChild.textContent = "Speak";
+          return;
+        }
+        stopSpeaking();
+        const ok = listen(
+          (text) => handleSpoken(text, ta),
+          (state, text) => {
+            if (!mic.isConnected) return;
+            if (state === "listening") {
+              mic.setAttribute("aria-pressed", "true");
+              mic.lastElementChild.textContent = "Listening";
+            } else if (state === "hearing") ta.value = text;
+            else if (state === "idle" || state === "error") {
+              mic.setAttribute("aria-pressed", "false");
+              mic.lastElementChild.textContent = "Speak";
+              if (state === "error" && text === "not-allowed") toast("Microphone blocked. Type instead, or allow the mic.");
+            }
+          },
+        );
+        if (!ok) toast("Voice answers are not supported here. Type instead.");
+      }
+
+      function handleSpoken(text, ta) {
+        const cmd = voiceCommand(text);
+        if (cmd === "again") return sayAgain(spoken());
+        if (cmd === "explain") return explainLast();
+        if (cmd === "dontknow") return dontKnow();
+        if (choices) {
+          const m = text.toLowerCase().match(/\b(a|b|c|one|two|three|first|second|third)\b/);
+          const idx = m ? { a: 0, one: 0, first: 0, b: 1, two: 1, second: 1, c: 2, three: 2, third: 2 }[m[1]] : -1;
+          const buttons = answerBox.querySelectorAll(".choices button");
+          if (idx >= 0 && buttons[idx]) return buttons[idx].click();
+          return toast(`Heard "${text}". Say A, B or C.`);
+        }
+        if (ta) ta.value = text;
+        submit(text);
+      }
+
+      async function submit(text) {
+        text = (text || "").trim();
+        if (!text) return $("#answer")?.focus();
+        if (voiceCommand(text) === "dontknow") return dontKnow();
+        stopListening();
+        fill(answerBox, h("p", { class: "muted", "aria-live": "polite" }, "Checking..."));
+        const result = await grade(item, text);
+        feedback(result.verdict, result.feedback, { answer: text, offline: result.offline });
+      }
+
+      function pick(choice, el, list) {
+        list.querySelectorAll("button").forEach((b) => (b.disabled = true));
+        el.classList.add(choice.right ? "right" : "wrong");
+        if (!choice.right) {
+          const idx = choices.findIndex((c) => c.right);
+          list.querySelectorAll("button")[idx]?.classList.add("right");
+        }
+        setTimeout(() => feedback(choice.right ? "correct" : "incorrect", choice.right ? "" : "That one would cost you on the test."), 350);
+      }
+
+      function dontKnow() {
+        stopListening();
+        feedback("dontknow", "No problem. Here it is. Then a quick check.");
+      }
+
+      function feedback(verdict, text, extra = {}) {
+        let finalVerdict = verdict;
+        const heads = { correct: "Correct", partly: "Partly right", incorrect: "Not quite", dontknow: "Here's the answer" };
+        const head = h("p", { class: "verdict-head" }, heads[verdict]);
+        const box = h(
+          "div",
+          { class: "verdict", "data-v": verdict, role: "status" },
+          head,
+          text ? h("p", {}, text) : null,
+          extra.offline ? h("p", { class: "small muted", style: "margin-top:6px" }, "Offline check. Compare with the model answer.") : null,
+          h("div", { class: "model" }, h("p", { class: "model-label" }, "Model answer"), h("p", {}, item.modelAnswer)),
+          h("a", { class: "source", href: sourceUrl(item.source), target: "_blank", rel: "noopener" }, "Source: " + sourceLabel(sourceUrl(item.source))),
+        );
+        const override =
+          verdict === "partly" || verdict === "incorrect"
+            ? h("button", {
+                type: "button",
+                class: "btn quiet",
+                onclick: (e) => {
+                  finalVerdict = "correct";
+                  box.dataset.v = "correct";
+                  head.textContent = "Marked correct";
+                  e.currentTarget.remove();
+                  if (lastExplain) lastExplain.head = "Marked correct";
+                },
+              }, "I had it. Mark me correct")
+            : null;
+        const nextBtn = btn(verdict === "dontknow" ? "Quick check" : "Next", proceed, "primary");
+        fill(answerBox, box, override, nextBtn);
+        explainBtn.disabled = false;
+        lastExplain = { prompt: item.prompt, head: heads[verdict], feedback: text, modelAnswer: item.modelAnswer, source: item.source };
+        nextBtn.focus({ preventScroll: true });
+        box.scrollIntoView({ block: "nearest", behavior: "smooth" });
+
+        const say = verdict === "correct" ? `Correct. ${text || ""}` : `${heads[verdict]}. ${text || ""} ${verdict === "partly" && !extra.offline ? "" : "The answer: " + item.modelAnswer}`;
+        speak(say, { onend: () => listenForNext() });
+
+        function listenForNext() {
+          if (!S.voice || !Rec || !nextBtn.isConnected) return;
+          listen(
+            (t) => {
+              const cmd = voiceCommand(t);
+              if (!nextBtn.isConnected) return;
+              if (cmd === "next") proceed();
+              else if (cmd === "again" || cmd === "explain") explainLast();
+            },
+            () => {},
+          );
+        }
+
+        function proceed() {
+          stopListening();
+          stopSpeaking();
+          if (!quick) {
+            ctx.asked++;
+            ctx.results.push({ item, verdict: finalVerdict });
+            ctx.prev = item;
+          }
+          record(item, finalVerdict === "dontknow" ? "incorrect" : finalVerdict);
+          if (cfg.commit) cfg.commit(item, finalVerdict, ctx, quick);
+          if (verdict === "dontknow" && !quick) {
+            const follow = item.followUp && byId(item.followUp);
+            if (follow && follow.id !== item.id) return ask(follow, { quick: true });
+            return ask(item, { quick: true, forceChoices: true });
+          }
+          next();
+        }
+      }
+
+      renderAnswer();
+      const line = (introLine ? introLine + " " : "") + spoken();
+      speak(line, {
+        onend: () => {
+          // Hands-free: in voice mode, start listening once the question has been read.
+          if (!S.voice || !Rec || rec) return;
+          if (useChoicesNow()) {
+            if (answerBox.querySelector(".choices button:not([disabled])")) listen((t) => handleSpoken(t, null), () => {});
+            return;
+          }
+          const mic = answerBox.querySelector(".btn.mic");
+          const ta = $("#answer");
+          if (mic && ta && !rec) toggleMic(ta, mic);
+        },
+      });
+    }
+  }
+
+  function startDrill(items, title) {
+    items = usableItems(items);
+    if (!items.length) return toast("No questions here yet.");
+    current = { name: "session", arg: null };
+    history.pushState({ name: "session" }, "", "#drill");
+    const total = items.length;
+    runSession({
+      mode: "drill",
+      items,
+      header: (ctx) =>
+        h(
+          "div",
+          {},
+          h("span", { class: "kicker" }, title),
+          h("div", { class: "progress" }, `${Math.min(ctx.asked + 1, total)} / ${total}`, h("div", { class: "progress-bar" }, h("span", { style: `width:${(Math.min(ctx.asked + 1, total) / total) * 100}%` }))),
+        ),
+      done: (ctx) => {
+        const right = ctx.results.filter((r) => r.verdict === "correct").length;
+        const missed = ctx.results.filter((r) => r.verdict !== "correct");
+        mount(
+          h("span", { class: "kicker" }, title),
+          h("h1", { class: "title" }, `${right} of ${ctx.results.length} right`),
+          missed.length
+            ? h("p", { class: "lede" }, `${missed.length} added to your weak-spot review. You'll see them until you get each right twice in a row.`)
+            : h("p", { class: "lede" }, "Clean sweep."),
+          h(
+            "div",
+            { class: "stack" },
+            missed.length ? btn("Review the misses now", () => go("review"), "primary") : null,
+            btn("Another drill", () => go("drills"), missed.length ? "" : "primary"),
+            btn("Back to menu", () => go("home"), "ghost"),
+          ),
+        );
+        speak(`${right} of ${ctx.results.length} right.`);
+      },
+    });
+  }
+
+  // ======================================================================
+  // Screen: mock test
+  // ======================================================================
+  screens.mock = () => {
+    let length = 16;
+    const group = h("div", { class: "choice-group", role: "group", "aria-label": "Mock length" });
+    for (const [n, label] of [
+      [12, "Short"],
+      [16, "Standard"],
+      [20, "Long"],
+    ]) {
+      group.append(
+        h(
+          "button",
+          {
+            type: "button",
+            "aria-pressed": String(n === length),
+            onclick: (e) => {
+              length = n;
+              group.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", "false"));
+              e.currentTarget.setAttribute("aria-pressed", "true");
+            },
+          },
+          `${label} (${n})`,
+        ),
+      );
+    }
+    const localN = localQuestions().length;
+    mount(
+      h("span", { class: "kicker" }, "Full mock test"),
+      h("h1", { class: "title" }, "I'll be your examiner"),
+      h("p", { class: "lede" }, "Check-in, the pre-drive check, leaving the lot, the drive, pulling over, backing and the return. One question at a time."),
+      h(
+        "div",
+        { class: "card stack" },
+        h("p", { html: md("Scored like the real sheet: **any critical error fails**, more than **15 errors** fails, and **4 or more** pre-drive misses fails.") }),
+        h("p", { class: "small muted" }, "Error counts are scaled so a practice run feels like the real thing."),
+        localN ? h("p", { class: "small" }, `Includes questions from your test area (${localN} available).`) : R.state === "working" ? h("p", { class: "small muted" }, "Local questions will join once research finishes.") : null,
+        !AI.on ? h("p", { class: "small muted" }, "Answers are multiple choice right now. Type-in grading needs the online helper.") : null,
+      ),
+      h("div", { style: "height:16px" }),
+      h("p", { style: "font-weight:700;margin-bottom:6px" }, "Number of driving scenarios"),
+      group,
+      h("div", { style: "height:16px" }),
+      !S.voice && synth ? h("p", { class: "small muted", style: "margin-bottom:10px" }, "Tip: turn Voice on (top right) to hear the examiner.") : null,
+      btn("Start mock test", () => runMock(length), "primary"),
+    );
+  };
+
+  function buildMock(nDrive) {
+    const pick = (phase, n) => shuffle(BANK.items.filter((i) => i.phase === phase)).slice(0, n);
+    const arm = byId(ARM_IDS[Math.floor(Math.random() * ARM_IDS.length)]);
+    const predrive = shuffle(PREDRIVE_ITEMS.filter((p) => !ARM_IDS.includes(p.id)).concat([{ ...arm, phase: "predrive" }]));
+    const local = usableItems(localQuestions()).map((q) => ({ ...q, phase: "drive" }));
+    const localPick = weightedPick(local, Math.min(5, local.length, Math.floor(nDrive / 3)));
+    const drivePool = usableItems(BANK.items.filter((i) => !i.phase));
+    const drive = shuffle([...localPick, ...weightedPick(drivePool, nDrive - localPick.length)]);
+    return [
+      ...pick("checkin", 2),
+      ...predrive,
+      ...pick("exit", 1),
+      ...drive,
+      byId("pull-over"),
+      byId("pull-out"),
+      byId("backing"),
+      byId("return-dmv"),
+    ]
+      .filter(Boolean)
+      .map((i) => ({ ...i, phase: i.phase || "drive" }));
+  }
+
+  function mockTally(results) {
+    const t = { critical: 0, points: 0, predrive: 0, criticalItems: [], fix: [] };
+    for (const { item, verdict } of results) {
+      if (verdict === "correct") continue;
+      const miss = verdict === "incorrect" || verdict === "dontknow";
+      if (item.phase === "predrive") {
+        t.predrive++;
+        t.fix.push(item);
+        continue;
+      }
+      if (item.severity === "critical") {
+        if (miss) {
+          t.critical++;
+          t.criticalItems.push(item);
+        } else t.points += 1;
+      } else if (item.severity === "tip") t.points += miss ? 1 : 0;
+      else t.points += miss ? 2 : 1;
+      t.fix.push(item);
+    }
+    t.pass = t.critical === 0 && t.points <= 15 && t.predrive <= 3;
+    return t;
+  }
+
+  function runMock(nDrive) {
+    const items = buildMock(nDrive);
+    const total = items.length;
+    let warnedPredrive = false;
+    current = { name: "session", arg: null };
+    history.pushState({ name: "session" }, "", "#mock");
+    runSession({
+      mode: "mock",
+      items,
+      intro: (item, prev) => (!prev || prev.phase !== item.phase ? PHASES[item.phase]?.say : null),
+      header: (ctx, item) => {
+        const t = mockTally(ctx.results);
+        const nodes = [
+          h("div", { class: "progress" }, `${Math.min(ctx.asked + 1, total)} / ${total}`, h("div", { class: "progress-bar" }, h("span", { style: `width:${(Math.min(ctx.asked + 1, total) / total) * 100}%` }))),
+          h("p", { class: "phase" }, PHASES[item.phase]?.label || "On the road"),
+          h(
+            "div",
+            { class: "tally", "aria-label": "Score so far" },
+            h("span", { class: t.critical ? "hot" : "" }, `Critical ${t.critical}`),
+            h("span", { class: t.points > 15 ? "hot" : "" }, `Errors ${t.points}/15`),
+            h("span", { class: t.predrive > 3 ? "hot" : "" }, `Pre-drive ${t.predrive}/3`),
+          ),
+        ];
+        if (t.predrive > 3 && !warnedPredrive && item.phase !== "predrive") {
+          warnedPredrive = true;
+          nodes.push(h("p", { class: "note bad", style: "margin-bottom:12px" }, "In a real test, 4 pre-drive misses would end it here. Keep going for practice."));
+        }
+        return h("div", {}, nodes);
+      },
+      done: (ctx) => {
+        const t = mockTally(ctx.results);
+        const fixIds = [...new Set(t.fix.map((i) => i.id))];
+        S.mocks.push({ at: Date.now(), pass: t.pass, critical: t.critical, points: t.points, predrive: t.predrive, total: ctx.results.length, missed: fixIds });
+        save();
+        const reasons = [];
+        if (t.critical) reasons.push(`${t.critical} critical error${t.critical > 1 ? "s" : ""}`);
+        if (t.points > 15) reasons.push(`${t.points} errors (15 allowed)`);
+        if (t.predrive > 3) reasons.push(`${t.predrive} pre-drive misses (3 allowed)`);
+        const fixItems = fixIds.map(byId).filter(Boolean);
+        mount(
+          h("span", { class: "kicker" }, "Mock test result"),
+          h("p", { class: `big-verdict ${t.pass ? "pass" : "fail"}` }, t.pass ? "Pass" : "Fail"),
+          h("p", { class: "lede", style: "margin-top:8px" }, t.pass ? `${t.points} errors, no critical errors.` : `Because of ${reasons.join(", ")}.`),
+          h(
+            "div",
+            { class: "tally" },
+            h("span", { class: t.critical ? "hot" : "" }, `Critical ${t.critical}`),
+            h("span", { class: t.points > 15 ? "hot" : "" }, `Errors ${t.points}/15`),
+            h("span", { class: t.predrive > 3 ? "hot" : "" }, `Pre-drive ${t.predrive}/3`),
+          ),
+          fixItems.length
+            ? h(
+                "div",
+                { class: "card" },
+                h("p", { style: "font-weight:700;margin-bottom:8px" }, "Fix these"),
+                h(
+                  "ol",
+                  { class: "plain" },
+                  fixItems.map((i) => h("li", {}, t.criticalItems.includes(i) ? h("strong", {}, "Critical: ") : null, i.prompt)),
+                ),
+              )
+            : h("p", { class: "lede" }, "Nothing missed. Run another to be sure."),
+          h("div", { style: "height:16px" }),
+          h(
+            "div",
+            { class: "stack" },
+            fixItems.length ? btn(`Review these ${fixItems.length} now`, () => startReview(fixIds), "primary") : null,
+            btn("Take another mock", () => go("mock"), fixItems.length ? "" : "primary"),
+            btn("Back to menu", () => go("home"), "ghost"),
+          ),
+        );
+        speak(t.pass ? `You passed, with ${t.points} errors.` : `That would be a fail, because of ${reasons.join(", ")}. Let's review what you missed.`);
+      },
+    });
+  }
+
+  // ======================================================================
+  // Screen: weak-spot review
+  // ======================================================================
+  screens.review = () => {
+    const ids = Object.keys(S.review).filter((id) => byId(id));
+    if (!ids.length) {
+      mount(
+        h("span", { class: "kicker" }, "Weak-spot review"),
+        h("h1", { class: "title" }, "Nothing to review"),
+        h("p", { class: "lede" }, "Anything you miss in drills or mocks lands here. It stays until you get it right twice in a row."),
+        h("div", { class: "stack" }, btn("Take a mock test", () => go("mock"), "primary"), btn("Back to menu", () => go("home"), "ghost")),
+      );
+      return;
+    }
+    mount(
+      h("span", { class: "kicker" }, "Weak-spot review"),
+      h("h1", { class: "title" }, `${ids.length} to fix`),
+      h("p", { class: "lede" }, "Each one comes back until you get it right twice in a row."),
+      h("div", { class: "card" }, h("ul", { class: "plain" }, ids.slice(0, 12).map((id) => h("li", {}, byId(id).prompt, " ", h("span", { class: "muted small" }, `(${S.review[id].streak}/2)`)))), ids.length > 12 ? h("p", { class: "small muted", style: "margin-top:8px" }, `and ${ids.length - 12} more`) : null),
+      h("div", { style: "height:16px" }),
+      h("div", { class: "stack" }, btn("Start review", () => startReview(ids), "primary"), btn("Back to menu", () => go("home"), "ghost")),
+      h("div", { class: "rule" }),
+      findMorePanel(),
+    );
+  };
+
+  function startReview(ids) {
+    const items = usableItems(shuffle(ids.slice()).map(byId));
+    if (!items.length) return go("review");
+    current = { name: "session", arg: null };
+    history.pushState({ name: "session" }, "", "#review");
+    runSession({
+      mode: "review",
+      items,
+      header: () => {
+        const left = Object.keys(S.review).length;
+        return h(
+          "div",
+          {},
+          h("span", { class: "kicker" }, "Weak-spot review"),
+          h("p", { class: "small muted", style: "margin-bottom:12px" }, `${left} left to master. Right twice in a row clears one.`),
+        );
+      },
+      commit: (item, verdict, ctx, quick) => {
+        if (quick) return;
+        // Not mastered yet: bring it back after a couple of other questions.
+        if (S.review[item.id] && !ctx.queue.some((q) => q.id === item.id)) {
+          ctx.queue.splice(Math.min(2, ctx.queue.length), 0, item);
+        }
+      },
+      done: () => {
+        const left = Object.keys(S.review).length;
+        mount(
+          h("span", { class: "kicker" }, "Weak-spot review"),
+          h("h1", { class: "title" }, left ? `${left} still to fix` : "All cleared"),
+          h("p", { class: "lede" }, left ? "Come back to these later today." : "Every missed question is now right twice in a row."),
+          h("div", { class: "stack" }, btn("See readiness", () => go("summary"), "primary"), btn("Back to menu", () => go("home"), "ghost")),
+        );
+        speak(left ? `${left} still to fix.` : "All cleared. Nice work.");
+      },
+    });
+  }
+
+  // ======================================================================
+  // Screen: readiness summary
+  // ======================================================================
+  screens.summary = () => {
+    const last = S.mocks[S.mocks.length - 1];
+    const reviewN = Object.keys(S.review).length;
+    const pdFast = BANK.predrive.filter((p) => S.predrive[p.id] === "fast").length;
+    const pdTotal = BANK.predrive.length;
+    const passes = S.mocks.filter((m) => m.pass).length;
+    const cs = categoryStats();
+
+    let level, cls;
+    if (!S.mocks.length) (level = "No mock yet"), (cls = "");
+    else if (last.pass && reviewN === 0 && pdFast === pdTotal) (level = "Ready"), (cls = "pass");
+    else if (last.pass) (level = "Almost there"), (cls = "");
+    else (level = "Not yet"), (cls = "fail");
+
+    const todo = [];
+    if (!S.mocks.length) todo.push(["Take a full mock test", () => go("mock")]);
+    if (reviewN) todo.push([`Clear ${reviewN} weak spot${reviewN > 1 ? "s" : ""}`, () => go("review")]);
+    if (pdFast < pdTotal) todo.push([`Get all ${pdTotal} pre-drive items under 2 seconds (${pdFast} now)`, () => go("predrive")]);
+    const weak = Object.entries(cs).filter(([k, v]) => k !== "pre-drive" && v.seen >= 3 && v.right / v.seen < 0.7);
+    for (const [k] of weak) todo.push([`Drill ${BANK.categories[k].toLowerCase()}`, () => startDrill(shuffle(usableItems(allItems().filter((i) => i.category === k))).slice(0, 10), BANK.categories[k])]);
+    if (S.mocks.length && last.pass && passes < 2) todo.push(["Pass one more mock to be sure", () => go("mock")]);
+
+    mount(
+      h("span", { class: "kicker" }, "Readiness"),
+      h("p", { class: `big-verdict ${cls}` }, level),
+      h(
+        "p",
+        { class: "lede", style: "margin-top:8px" },
+        S.mocks.length ? `${S.mocks.length} mock${S.mocks.length > 1 ? "s" : ""}, ${passes} passed. Last: ${last.pass ? "pass" : "fail"}, ${last.points} errors, ${last.critical} critical.` : "Take a mock test to see where you stand.",
+      ),
+      todo.length
+        ? h("div", { class: "stack" }, h("p", { style: "font-weight:700" }, "Next steps"), todo.map(([label, fn], i) => btn(label, fn, i === 0 ? "primary" : "")))
+        : h("p", { class: "note" }, "Nothing left on the list. Rest well and arrive early."),
+      h("div", { class: "rule" }),
+      h("p", { style: "font-weight:700" }, "By topic"),
+      h(
+        "ul",
+        { class: "bars" },
+        Object.entries(cs)
+          .filter(([, v]) => v.total)
+          .map(([k, v]) => {
+            const pct = v.seen ? Math.round((v.right / v.seen) * 100) : 0;
+            return h(
+              "li",
+              {},
+              h("div", { class: "bar-top" }, h("span", {}, BANK.categories[k]), h("span", { class: "muted" }, v.seen ? `${v.right}/${v.seen} right` : "not tried")),
+              h("div", { class: "bar" }, h("span", { class: pct < 70 && v.seen ? "low" : "", style: `width:${pct}%` })),
+            );
+          }),
+      ),
+      h("div", { class: "rule" }),
+      h(
+        "button",
+        {
+          type: "button",
+          class: "btn quiet",
+          onclick: () => {
+            if (!confirm("Clear all progress on this device? Your office stays.")) return;
+            const keep = { office: S.office, testDate: S.testDate, hasCar: S.hasCar, hasDriver: S.hasDriver, voice: S.voice };
+            S = Object.assign(defaults(), keep);
+            save();
+            go("home");
+          },
+        },
+        "Reset progress",
+      ),
+    );
+    speak(`Readiness: ${level}.`);
+  };
+
+  // ======================================================================
+  // Screen: local tips (research)
+  // ======================================================================
+  screens.local = () => {
+    if (R.state !== "ready") {
+      const msg = {
+        working: ["Still researching", "Looking up sample routes and hazards near your office. It can take a minute or two. Keep practising; I'll tell you when it's ready."],
+        failed: ["Local research didn't work this time", "Everything else still works with the built-in questions."],
+        off: ["Local research is off", "The online helper isn't set up here, so the app uses its built-in content. Everything else works."],
+        idle: ["No research yet", "Pick an office to start."],
+      }[R.state];
+      mount(
+        h("span", { class: "kicker" }, "Local tips"),
+        h("h1", { class: "title" }, msg[0]),
+        h("p", { class: "lede" }, msg[1]),
+        h(
+          "div",
+          { class: "stack" },
+          R.state === "failed" ? btn("Try again", () => (startResearch(true), go("local")), "primary") : null,
+          btn("Back to menu", () => go("home"), R.state === "failed" ? "" : "primary"),
+        ),
+      );
+      return;
+    }
+    const d = R.data;
+    const link = (url) => h("a", { class: "source", href: url, target: "_blank", rel: "noopener" }, sourceLabel(url));
+    const featureNames = {
+      "railroad-crossing": "Railroad crossing",
+      "flashing-signal": "Flashing signal",
+      "flashing-yellow-arrow": "Flashing yellow arrow",
+      "pedestrian-beacon": "Pedestrian beacon",
+      "school-zone": "School zone",
+      "one-way-street": "One-way street",
+      "bike-lane": "Bike lane",
+      "sharp-turn": "Sharp turn",
+      "multi-lane-road": "Multi-lane road",
+      freeway: "Freeway",
+      "downtown-grid": "Downtown grid",
+      "four-way-stop": "Four-way stop",
+      other: "Other",
+    };
+    const nothing = !d.routes.length && !d.features.length && !d.failPoints.length;
+
+    mount(
+      h("span", { class: "kicker" }, "Local tips"),
+      h("h1", { class: "title" }, d.office.name),
+      d.office.address ? h("p", { class: "muted", style: "margin-bottom:12px" }, d.office.address) : null,
+      h("p", { class: "note", style: "margin-bottom:16px" }, "Unofficial. Gathered from public pages. The examiner picks the route on the day."),
+      d.summary ? h("p", { class: "lede" }, d.summary) : null,
+      nothing ? h("p", { class: "lede" }, "No reliable local details were found for this office. Use the built-in questions; they cover what examiners mark everywhere.") : null,
+      d.routes.length
+        ? h(
+            "section",
+            {},
+            h("h2", { class: "card-title", style: "margin-top:12px" }, "Sample routes"),
+            d.routes.map((r) =>
+              h("div", { class: "card", style: "margin-bottom:10px" }, h("p", { style: "font-weight:700" }, r.name), h("p", { class: "small" }, r.streets.join(" → ")), r.notes ? h("p", { class: "small muted", style: "margin-top:6px" }, r.notes) : null, link(r.source)),
+            ),
+          )
+        : null,
+      d.features.length
+        ? h(
+            "section",
+            {},
+            h("h2", { class: "card-title", style: "margin-top:20px" }, "Watch for"),
+            h(
+              "ul",
+              { class: "bars" },
+              d.features.map((f) => h("li", {}, h("p", {}, h("strong", {}, featureNames[f.type] || "Note"), ": ", f.name), f.detail ? h("p", { class: "small muted" }, f.detail) : null, link(f.source))),
+            ),
+          )
+        : null,
+      d.failPoints.length
+        ? h(
+            "section",
+            {},
+            h("h2", { class: "card-title", style: "margin-top:20px" }, "Where people lose points here"),
+            h("ul", { class: "bars" }, d.failPoints.map((f) => h("li", {}, h("p", {}, f.detail), link(f.source)))),
+          )
+        : null,
+      d.notFound?.length
+        ? h("details", { class: "fold", style: "margin-top:20px" }, h("summary", {}, "Not found"), h("div", {}, h("ul", { class: "plain small" }, d.notFound.map((n) => h("li", {}, n)))))
+        : null,
+      d.sources.length
+        ? h(
+            "details",
+            { class: "fold" },
+            h("summary", {}, `Sources (${d.sources.length})`),
+            h("div", {}, h("ol", { class: "plain small" }, d.sources.map((s) => h("li", {}, h("a", { href: s.url, target: "_blank", rel: "noopener" }, s.title || s.url))))),
+          )
+        : null,
+      h("div", { style: "height:18px" }),
+      h(
+        "div",
+        { class: "stack" },
+        localQuestions().length ? btn(`Drill ${plural(localQuestions().length, "local question")}`, () => startDrill(shuffle(localQuestions().slice()), "Local questions"), "primary") : null,
+        btn("Back to menu", () => go("home"), "ghost"),
+      ),
+      h("p", { class: "small muted", style: "margin-top:12px" }, `Researched ${new Date(d.researchedAt).toLocaleDateString()}.`),
+    );
+  };
+
+  // ======================================================================
+  // Boot
+  // ======================================================================
+  updateVoiceBtn();
+  if (S.office) startResearch();
+  updateChip();
+  const initial = location.hash.slice(1);
+  const startScreen = S.office ? (initial in screens && initial !== "setup" ? initial : "home") : "setup";
+  history.replaceState({ name: startScreen }, "", location.href);
+  render(startScreen, null, false);
+})();
+
+    </script>
+  </body>
+</html>

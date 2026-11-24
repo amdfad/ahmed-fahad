@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2f4bff" />
+    <title>Road Test Coach | Ahmed Fahad</title>
+    <meta
+      name="description"
+      content="Practise for the California DMV behind-the-wheel test: what to expect, the pre-drive check, rule drills and a full mock test with an examiner voice."
+    />
+    <meta property="og:title" content="California Road Test Coach" />
+    <meta
+      property="og:description"
+      content="One question at a time, like the examiner. Practise for the California DMV drive test."
+    />
+    <style>
+/* @include css/road-test.css */
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <button class="brand" id="brand" type="button" aria-label="Road Test Coach, go to menu">
+          <svg viewBox="0 0 38 28" aria-hidden="true">
+            <rect x="1" y="3" width="36" height="24" fill="currentColor" />
+            <path d="M1 3l18 13L37 3" fill="none" stroke="#f5f3ee" stroke-width="3" />
+            <rect x="30" y="0" width="5" height="9" fill="currentColor" />
+          </svg>
+          <span>Road Test Coach</span>
+        </button>
+        <button class="chip" id="status" type="button" hidden aria-live="polite"></button>
+        <button class="voice-toggle" id="voice" type="button" aria-pressed="false">Voice off</button>
+      </header>
+
+      <main id="main" tabindex="-1"></main>
+
+      <footer class="footer">
+        <p>
+          <strong>Not affiliated with the California DMV.</strong> Practice only. Sample routes are
+          unofficial; the examiner chooses the route on the day. Always follow the official
+          <a href="https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/" target="_blank" rel="noopener"
+            >California Driver Handbook</a
+          >.
+        </p>
+        <p>Your progress is saved on this device only.</p>
+      </footer>
+    </div>
+
+    <script type="application/json" id="bank-data">
+/* @include road-test/bank.json */
+    </script>
+    <script type="application/json" id="office-data">
+/* @include road-test/offices.json */
+    </script>
+    <script>
+/* @include js/road-test.js */
+    </script>
+  </body>
+</html>
