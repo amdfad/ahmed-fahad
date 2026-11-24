@@ -1,0 +1,1281 @@
+{
+  "version": 1,
+  "sources": {
+    "handbook": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/",
+    "testing": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/the-testing-process/",
+    "laws": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/laws-and-rules-of-the-road/",
+    "sharing": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/laws-and-rules-of-the-road-cont1/",
+    "lanes": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/navigating-the-roads/",
+    "parking": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/navigating-the-roads-cont1/",
+    "safe": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/safe-driving/",
+    "speed": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/safe-driving-cont2/",
+    "appointments": "https://www.dmv.ca.gov/portal/appointments/select-appointment-type/"
+  },
+  "categories": {
+    "test-day": "Test day rules",
+    "pre-drive": "Pre-drive checklist",
+    "four-way": "Four-way stops",
+    "signals": "Lights and signals",
+    "pedestrians": "Pedestrians and cyclists",
+    "observation": "Head checks and mirrors",
+    "lanes": "Lanes, turns and spacing",
+    "speed": "Speed and following distance",
+    "railroad": "Railroad crossings",
+    "special": "Special situations",
+    "maneuvers": "Lot, pull-over and backing"
+  },
+  "expect": [
+    {
+      "id": "book",
+      "title": "Book the test",
+      "lines": [
+        "Book a **Behind-the-Wheel Drive Test** at dmv.ca.gov.",
+        "Adults 18 and over can book as soon as they hold a permit.",
+        "Slots fill fast. Check nearby offices too, and recheck every day for cancellations."
+      ],
+      "source": "appointments"
+    },
+    {
+      "id": "bring",
+      "title": "What to bring",
+      "lines": [
+        "1. Your instruction permit.",
+        "2. A California-licensed driver, 18 or older. They drive you there and back. A permit holder cannot drive alone.",
+        "3. A safe car.",
+        "4. Proof of insurance and registration for that car."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "car-rules",
+      "title": "Car rules",
+      "lines": [
+        "No donut spare tire.",
+        "All lights, turn signals, brake lights and the horn must work.",
+        "Rental car? Your name must be on the contract, and it must allow drive tests.",
+        "Driver-assist features must be **off**: lane keep, adaptive cruise, auto park."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "check-in",
+      "title": "Check-in",
+      "lines": [
+        "Go to the window first. Then wait in your car in the test lane.",
+        "The examiner checks the car, then asks you to show the controls.",
+        "Miss 4 or more of the control items and the test ends before you drive."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "the-drive",
+      "title": "The drive",
+      "lines": [
+        "About **15 to 20 minutes**.",
+        "Residential and business streets. Turns at lights and stop signs. Lane changes.",
+        "Pulling over to the curb and backing up.",
+        "Possibly a short stretch of freeway.",
+        "The examiner chooses the route on the day."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "scoring",
+      "title": "How you pass",
+      "lines": [
+        "You need all three:",
+        "1. No more than **3 errors** on pre-drive items 9 to 14.",
+        "2. **Zero** critical driving errors. One is an automatic fail.",
+        "3. No more than **15 errors** on the scored driving."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "after",
+      "title": "After the test",
+      "lines": [
+        "**Pass:** you get an interim paper license that day. The card comes by mail in a few weeks.",
+        "**Fail:** you get a score sheet with comments. Read it carefully. It tells you exactly what to fix.",
+        "The application fee covers three attempts."
+      ],
+      "source": "testing"
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "attempt-1",
+      "title": "Attempt 1: failed",
+      "lines": [
+        "Critical error: **disobeyed traffic signal**.",
+        "At a four-way flashing red, the driver stopped correctly, then turned left while cars that arrived first were still waiting.",
+        "A four-way flashing red works **exactly** like a four-way stop.",
+        "Also marked: several traffic-check errors at intersections and turns, and the passenger mirror clipped a trash bin at the curb."
+      ]
+    },
+    {
+      "id": "attempt-2",
+      "title": "Attempt 2: passed with 14 errors",
+      "lines": [
+        "Fifteen are allowed. That was one away from failing.",
+        "The examiner's only written note: **look over your shoulder** for lane changes and backing.",
+        "Most marks were again traffic checks at intersections, stops and turns."
+      ]
+    },
+    {
+      "id": "takeaways",
+      "title": "What to take from it",
+      "lines": [
+        "1. Wait your turn at every four-way.",
+        "2. Make head checks huge and obvious, every time.",
+        "3. Keep an arm's length from bins and parked cars.",
+        "4. Know flashing red, flashing yellow and the flashing yellow arrow cold."
+      ]
+    }
+  ],
+  "vehicleCheck": [
+    "Driver window opens",
+    "Windshield clear, no big cracks",
+    "Mirrors (at least two, one on the left)",
+    "Turn signals, front and back",
+    "Brake lights, left and right",
+    "Tires (no donut spare)",
+    "Foot brake",
+    "Horn",
+    "Passenger door opens",
+    "Glove box opens",
+    "Seat belts",
+    "Head restraints",
+    "No driver-assist in use, no recording devices"
+  ],
+  "predriveTips": [
+    "Practise these in the exact car you will test in, until each takes under 2 seconds.",
+    "If the gear selector has an **S** mode (sport or sequential), leave it in **D** for the whole test.",
+    "Memory line for items 9 to 14: **B-A-W-D-H-H** = Brake, Arms, Wipers, Defrost, Hazards, Headlights."
+  ],
+  "predrive": [
+    {
+      "id": "pd-parking-brake",
+      "item": 9,
+      "label": "Parking brake",
+      "locate": "Set the parking brake, then release it. Where is it in your car?",
+      "howTo": "It could be a hand lever between the seats (press the button, push down to release), a small pedal by your left foot, or an electronic switch marked P in a circle (pull to set; foot on the brake and push to release). A dashboard light confirms it.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "The examiner says: set your parking brake, then release it. Talk me through it.",
+      "modelAnswer": "Find the parking brake (lever, foot pedal or P switch), set it and point out the dashboard light, then release it the right way for that car.",
+      "keyPoints": ["set the parking brake", "release it", "dashboard light confirms"],
+      "distractors": [
+        "Press the foot brake hard and hold it. That counts as the parking brake.",
+        "Shift into Park. The parking brake sets itself and does not need to be shown."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "pd-arm-left",
+      "item": 10,
+      "label": "Arm signal: left turn",
+      "locate": "Window down. Show me the arm signal for a left turn.",
+      "howTo": "Left arm out the window, straight out and level. Memory line: left is level.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me the arm signal for a left turn.",
+      "modelAnswer": "Left arm straight out the window, level with the ground.",
+      "keyPoints": ["left arm out the window", "straight out and level"],
+      "distractors": [
+        "Left arm out, elbow bent, hand pointing up.",
+        "Left arm out, elbow bent, hand pointing down."
+      ],
+      "followUp": "pd-arm-right",
+      "source": "testing"
+    },
+    {
+      "id": "pd-arm-right",
+      "item": 10,
+      "label": "Arm signal: right turn",
+      "locate": "Show me the arm signal for a right turn.",
+      "howTo": "Left arm out, elbow bent, hand pointing up. Memory line: right reaches up.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me the arm signal for a right turn.",
+      "modelAnswer": "Left arm out the window, elbow bent, hand pointing up.",
+      "keyPoints": ["left arm out", "elbow bent", "hand pointing up"],
+      "distractors": [
+        "Right arm out the passenger window, straight and level.",
+        "Left arm out, elbow bent, hand pointing down."
+      ],
+      "followUp": "pd-arm-stop",
+      "source": "testing"
+    },
+    {
+      "id": "pd-arm-stop",
+      "item": 10,
+      "label": "Arm signal: slow or stop",
+      "locate": "Show me the arm signal for slowing down or stopping.",
+      "howTo": "Left arm out, elbow bent, hand pointing down. Memory line: stop drops down.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me the arm signal for slowing down or stopping.",
+      "modelAnswer": "Left arm out the window, elbow bent, hand pointing down.",
+      "keyPoints": ["left arm out", "elbow bent", "hand pointing down"],
+      "distractors": [
+        "Left arm straight out and level, palm facing back.",
+        "Left arm out, elbow bent, hand pointing up."
+      ],
+      "followUp": "pd-arm-left",
+      "source": "testing"
+    },
+    {
+      "id": "pd-wipers",
+      "item": 11,
+      "label": "Windshield wipers",
+      "locate": "Turn on your windshield wipers. Where are they in your car?",
+      "howTo": "Usually the right-hand stalk. Push down one click for continuous. Pushing up often gives a single wipe only, which may not count.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Turn on your windshield wipers. How do you make them run, not just wipe once?",
+      "modelAnswer": "Use the wiper stalk (usually on the right) and push it down one click so they run continuously. Pushing up usually gives a single wipe.",
+      "keyPoints": ["wiper stalk", "push down for continuous", "up is a single wipe"],
+      "distractors": [
+        "Pull the stalk toward you. That sprays washer fluid, which is what the examiner wants.",
+        "Push the stalk up once. One wipe is enough to show they work."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "pd-defrost",
+      "item": 12,
+      "label": "Defroster",
+      "locate": "Show me your front and rear defroster. Which button is which?",
+      "howTo": "Front defrost is usually a curved windshield symbol with wavy arrows. Rear defrost is a rectangle with wavy arrows. Know both.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me the defroster. What are the two kinds and how do you tell them apart?",
+      "modelAnswer": "Front and rear. Front is the curved windshield symbol with wavy arrows; rear is the rectangle with wavy arrows.",
+      "keyPoints": ["front defroster", "rear defroster", "know which button is which"],
+      "distractors": [
+        "There is only one defroster. It is the air conditioning button.",
+        "The defroster is the recirculation button with the car and the arrow."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "pd-hazards",
+      "item": 13,
+      "label": "Emergency flashers",
+      "locate": "Turn on your hazard lights. Where is it in your car?",
+      "howTo": "The red triangle button, usually in the middle of the dashboard.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Show me your emergency flashers. What does the button look like?",
+      "modelAnswer": "The red triangle button, usually in the centre of the dash. Press it once on, once off.",
+      "keyPoints": ["red triangle button", "press to turn on and off"],
+      "distractors": [
+        "Push both turn signals at the same time.",
+        "The button with the headlight and three lines."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "pd-headlights",
+      "item": 14,
+      "label": "Headlights",
+      "locate": "Turn on your headlights. Now show me high beams.",
+      "howTo": "Usually the left stalk or a dial on the dash. High beams: push the stalk forward, or pull it to flash. Blue light on the dash confirms high beams.",
+      "category": "pre-drive",
+      "severity": "points",
+      "prompt": "Turn on your headlights, then show me the high beams.",
+      "modelAnswer": "Turn the headlight switch on (stalk or dial), then push the stalk forward for high beams. The blue dash light confirms high beams.",
+      "keyPoints": ["turn headlights on", "high beams", "blue light confirms high beams"],
+      "distractors": [
+        "Auto mode is enough. You never need to know where high beams are.",
+        "Turn on the fog lights. Those count as headlights on the test."
+      ],
+      "source": "testing"
+    }
+  ],
+  "items": [
+    {
+      "id": "checkin-bring",
+      "category": "test-day",
+      "severity": "tip",
+      "phase": "checkin",
+      "prompt": "Before we start. What did you need to bring today?",
+      "modelAnswer": "My permit, a licensed driver 18 or older who brought me, a safe car, and proof of insurance and registration.",
+      "keyPoints": ["instruction permit", "licensed driver 18 or older", "proof of insurance", "registration"],
+      "distractors": [
+        "Just my permit. The examiner provides everything else.",
+        "My permit and a passport photo. The car can be any car."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "checkin-assist",
+      "category": "test-day",
+      "severity": "critical",
+      "phase": "checkin",
+      "highRisk": true,
+      "prompt": "Your car has lane keep assist and adaptive cruise. Can you use them on the test?",
+      "modelAnswer": "No. Driver-assist features must be off for the whole test. Using them is an automatic fail.",
+      "keyPoints": ["no", "turn them off", "automatic fail if used"],
+      "distractors": [
+        "Yes, as long as you keep your hands on the wheel.",
+        "Only adaptive cruise, and only on the freeway part."
+      ],
+      "followUp": "checkin-camera",
+      "source": "testing"
+    },
+    {
+      "id": "checkin-camera",
+      "category": "test-day",
+      "severity": "points",
+      "phase": "checkin",
+      "prompt": "Can you use the backup camera when you reverse?",
+      "modelAnswer": "It can help, but it does not replace looking. Turn and look back over your right shoulder through the rear window the whole time you reverse.",
+      "keyPoints": ["camera does not replace looking", "look back over your right shoulder"],
+      "distractors": [
+        "Yes, the camera alone is fine. You do not need to turn around.",
+        "No, you must cover the screen or the test is cancelled."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "checkin-donut",
+      "category": "test-day",
+      "severity": "tip",
+      "phase": "checkin",
+      "prompt": "Your car has a donut spare on the back left wheel. Can you test in it today?",
+      "modelAnswer": "No. A donut spare is not allowed. The test gets rescheduled until the car has a proper tire.",
+      "keyPoints": ["no", "donut spare not allowed", "test is rescheduled"],
+      "distractors": [
+        "Yes, as long as you drive under 50 mph.",
+        "Yes, the examiner only checks the front tires."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "checkin-repeat",
+      "category": "test-day",
+      "severity": "tip",
+      "phase": "checkin",
+      "prompt": "The examiner gives you a direction and you are not sure you heard it. What do you do?",
+      "modelAnswer": "Ask them to repeat it. That is allowed. Then repeat it back, for example: left at the next street, then first right.",
+      "keyPoints": ["ask them to repeat", "repeat the instruction back"],
+      "distractors": [
+        "Guess and keep going. Asking costs points.",
+        "Pull over and stop until they say it again."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "exit-lot",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "exit",
+      "highRisk": true,
+      "prompt": "Pull out of the parking lot and turn right. Walk me through it.",
+      "modelAnswer": "Signal early. Stop fully before the sidewalk as if it were a limit line. Check for pedestrians. Look left, right, left. Then turn right into the nearest lane.",
+      "keyPoints": ["signal early", "full stop before the sidewalk", "check for pedestrians", "look left, right, left"],
+      "distractors": [
+        "Roll slowly across the sidewalk and stop at the street edge, then go.",
+        "Stop at the street, look left only, and go when it is clear."
+      ],
+      "followUp": "exit-lot-why",
+      "source": "laws"
+    },
+    {
+      "id": "exit-lot-why",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "exit",
+      "prompt": "There is no painted line at the lot exit. Where exactly do you stop?",
+      "modelAnswer": "Before the sidewalk. Treat the sidewalk edge like a limit line, then creep up if you need to see the street.",
+      "keyPoints": ["stop before the sidewalk", "creep forward to see if needed"],
+      "distractors": [
+        "At the curb line, with the front of the car over the sidewalk.",
+        "You do not need to stop if no cars are coming."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "four-way-first",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You pull up to a four-way stop. Two cars are already stopped there. What do you do?",
+      "modelAnswer": "Stop fully behind the line. Let the two cars that were there first go, in the order they arrived. Then it is my turn. Look left, right, left, and go.",
+      "keyPoints": ["full stop", "cars that stopped first go first", "wait your turn", "look left, right, left"],
+      "distractors": [
+        "Go right after your stop. Everyone is stopped, so you have a gap.",
+        "Wave them on and go at the same time as the second car."
+      ],
+      "followUp": "four-way-flashing-red",
+      "source": "laws"
+    },
+    {
+      "id": "four-way-flashing-red",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The lights at a four-way intersection are all flashing red. You stopped. A car on your left arrived before you and is still waiting. Can you turn left now?",
+      "modelAnswer": "No. A four-way flashing red works exactly like a four-way stop. The car that arrived first goes first. I wait for it, then take my turn.",
+      "keyPoints": ["same as a four-way stop", "first to stop goes first", "wait for that car"],
+      "distractors": [
+        "Yes. Flashing red means stop, then go when you like.",
+        "Yes, because left turns go before cars going straight."
+      ],
+      "followUp": "four-way-first",
+      "source": "laws"
+    },
+    {
+      "id": "four-way-same-time-right",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You and another car stop at a four-way stop at the same moment. They are on your right. Who goes?",
+      "modelAnswer": "The car on the right goes first, so they go. Then I look left, right, left and go.",
+      "keyPoints": ["car on the right goes first", "they go, then you"],
+      "distractors": [
+        "You go first because you are on their left.",
+        "Whoever is bigger goes first."
+      ],
+      "followUp": "four-way-same-time-left",
+      "source": "laws"
+    },
+    {
+      "id": "four-way-same-time-left",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You and another car stop at a four-way stop at the same time. This time they are on your left. Who goes?",
+      "modelAnswer": "I go. I am on their right, and the car on the right goes first. I still look left, right, left before moving.",
+      "keyPoints": ["you go", "you are on their right", "still look left, right, left"],
+      "distractors": [
+        "They go, because the car on the left always goes first.",
+        "Neither. Wait until one of you waves."
+      ],
+      "followUp": "four-way-same-time-right",
+      "source": "laws"
+    },
+    {
+      "id": "four-way-facing",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "At a four-way stop, you and an oncoming car stop at the same time, facing each other. You want to turn left. They are going straight. Who goes?",
+      "modelAnswer": "They go first. Straight goes before a left turn. Once they clear, I turn.",
+      "keyPoints": ["car going straight goes first", "you turn left after"],
+      "distractors": [
+        "You go first because you signalled.",
+        "You both go together since you will not cross paths."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "four-way-after-you",
+      "category": "four-way",
+      "severity": "critical",
+      "prompt": "You stop at a four-way stop. A second later, a car pulls up on your right. Who goes?",
+      "modelAnswer": "I go. I stopped first. The car on the right rule is only for arriving at the same time.",
+      "keyPoints": ["you stopped first so you go", "right rule only for same time"],
+      "distractors": [
+        "They go, because the car on the right always goes first.",
+        "Wait until they wave you through."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "stop-sign-roll",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Stop sign, quiet street, nobody around. What exactly do you do?",
+      "modelAnswer": "Come to a full stop behind the limit line. Count one, two. Look left, right, left again for cars and people. Then go.",
+      "keyPoints": ["full stop behind the line", "count one, two", "look left, right, left"],
+      "distractors": [
+        "Slow to walking speed. If it is clear, keep rolling through.",
+        "Stop past the line so you can see better, then go."
+      ],
+      "followUp": "stop-no-line",
+      "source": "laws"
+    },
+    {
+      "id": "stop-no-line",
+      "category": "signals",
+      "severity": "points",
+      "prompt": "There is a stop sign but no painted limit line. Where do you stop?",
+      "modelAnswer": "Before the crosswalk. If there is no crosswalk, before the intersection. If I cannot see, I creep forward slowly and stop again.",
+      "keyPoints": ["before the crosswalk", "if no crosswalk, before the intersection", "creep forward and stop again if you cannot see"],
+      "distractors": [
+        "Right at the stop sign pole, wherever it is.",
+        "In the crosswalk, so you can see the cross street."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "flashing-red",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "A single traffic light ahead is flashing red. What does it mean?",
+      "modelAnswer": "Treat it exactly like a stop sign. Full stop, look left, right, left, go when it is safe and it is my turn.",
+      "keyPoints": ["same as a stop sign", "full stop", "go when safe and your turn"],
+      "distractors": [
+        "Slow down and go through with care. No stop needed.",
+        "The light is broken. Stop and wait for it to turn green."
+      ],
+      "followUp": "flashing-yellow",
+      "source": "laws"
+    },
+    {
+      "id": "flashing-yellow",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The light ahead is flashing yellow. Do you have to stop?",
+      "modelAnswer": "No. Slow down and go through carefully. Be ready to stop for anyone in the way.",
+      "keyPoints": ["no stop required", "slow down", "proceed with caution"],
+      "distractors": [
+        "Yes. Flashing yellow means stop, like a stop sign.",
+        "No. Flashing yellow means speed up before it turns red."
+      ],
+      "followUp": "flashing-red",
+      "source": "laws"
+    },
+    {
+      "id": "flashing-yellow-arrow",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You want to turn left. The left arrow is flashing yellow. Oncoming cars keep coming. What do you do?",
+      "modelAnswer": "I may turn, but I must yield. Oncoming traffic has a green and will not stop for me. Pull up to the line, wheels straight, let all oncoming cars pass, check the crosswalk I am turning into, then turn on a safe gap.",
+      "keyPoints": ["you may turn but must yield", "oncoming traffic will not stop", "wheels straight while waiting", "check the crosswalk", "turn on a safe gap"],
+      "distractors": [
+        "It is a protected turn. Oncoming cars must stop for you.",
+        "It means stop and wait for a solid green arrow."
+      ],
+      "followUp": "green-arrow",
+      "source": "laws"
+    },
+    {
+      "id": "green-arrow",
+      "category": "signals",
+      "severity": "points",
+      "prompt": "Solid green arrow, solid yellow arrow, red arrow. What does each one mean for your turn?",
+      "modelAnswer": "Green arrow: protected turn, go. Yellow arrow: about to go red, do not start the turn unless already committed. Red arrow: stop, do not turn.",
+      "keyPoints": ["green arrow is protected, go", "yellow arrow do not start unless committed", "red arrow stop, no turn"],
+      "distractors": [
+        "Green arrow: yield to oncoming cars. Yellow arrow: speed up. Red arrow: turn after stopping.",
+        "All three mean you may turn if the road is clear."
+      ],
+      "followUp": "flashing-yellow-arrow",
+      "source": "laws"
+    },
+    {
+      "id": "left-green-ball",
+      "category": "signals",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "You are turning left on a solid green light, no arrow. Oncoming traffic is steady. Where do you wait?",
+      "modelAnswer": "Pull forward into the intersection, past the limit line, wheels straight. Turn when there is a gap, or when oncoming traffic stops at the yellow.",
+      "keyPoints": ["pull into the intersection", "wheels straight", "turn on a gap or when oncoming stops at the yellow"],
+      "distractors": [
+        "Wait behind the limit line until the light turns yellow, then go.",
+        "Wait in the intersection with the wheels already turned left, ready to go."
+      ],
+      "followUp": "wheels-straight",
+      "source": "lanes"
+    },
+    {
+      "id": "wheels-straight",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "Why keep your wheels straight while waiting to turn left?",
+      "modelAnswer": "If someone hits me from behind, straight wheels keep me from being pushed into oncoming traffic. Turned wheels are marked as an error.",
+      "keyPoints": ["if hit from behind you stay out of oncoming traffic", "turned wheels are an error"],
+      "distractors": [
+        "So the examiner can see the turn signal better.",
+        "It does not matter. Turning the wheels early is faster."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "right-on-red",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Red light. You want to turn right. No sign says otherwise. What do you do?",
+      "modelAnswer": "Come to a full stop behind the line. Check left for traffic and the crosswalk for people. Turn right only when it is clear.",
+      "keyPoints": ["full stop first", "check left for traffic", "check the crosswalk", "turn when clear"],
+      "distractors": [
+        "Slow down and turn if nobody is coming. Right on red does not need a full stop.",
+        "Right on red is never allowed on the test."
+      ],
+      "followUp": "no-turn-on-red",
+      "source": "lanes"
+    },
+    {
+      "id": "no-turn-on-red",
+      "category": "signals",
+      "severity": "critical",
+      "prompt": "Red light, and a sign says No Turn on Red. Nobody is coming. Can you turn right?",
+      "modelAnswer": "No. Wait for the green.",
+      "keyPoints": ["no", "wait for green"],
+      "distractors": [
+        "Yes, after a full stop, if it is clear.",
+        "Yes, the sign only applies at night."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "yellow-light",
+      "category": "signals",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The light turns yellow as you approach. What do you do?",
+      "modelAnswer": "Stop if I can do it safely. If I am too close to stop smoothly, continue through carefully.",
+      "keyPoints": ["stop if you can safely", "too close to stop, continue carefully"],
+      "distractors": [
+        "Speed up to beat the red.",
+        "Always slam on the brakes, no matter how close you are."
+      ],
+      "followUp": "stale-green",
+      "source": "laws"
+    },
+    {
+      "id": "stale-green",
+      "category": "signals",
+      "severity": "tip",
+      "prompt": "The light ahead has been green for a long time. What do you do as you approach?",
+      "modelAnswer": "Ease off the gas and cover the brake so I can stop smoothly if it turns yellow.",
+      "keyPoints": ["ease off the gas", "be ready to stop smoothly"],
+      "distractors": [
+        "Speed up so you make it through before it changes.",
+        "Stop and wait for it to cycle."
+      ],
+      "source": "safe"
+    },
+    {
+      "id": "signal-out",
+      "category": "signals",
+      "severity": "critical",
+      "prompt": "You reach an intersection and the traffic lights are completely dark. Power is out. What do you do?",
+      "modelAnswer": "Treat it as a four-way stop. Full stop, take turns in the order cars arrived.",
+      "keyPoints": ["treat as a four-way stop", "full stop", "take turns in order"],
+      "distractors": [
+        "Main road keeps going; only the side street stops.",
+        "Slow down and go if it looks clear."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "red-light-run",
+      "category": "signals",
+      "severity": "critical",
+      "prompt": "You stopped at a red light. The cross traffic light just turned yellow. Can you start moving?",
+      "modelAnswer": "No. I wait for my own light to turn green, then check that the intersection is clear and nobody is running the light.",
+      "keyPoints": ["wait for your own green", "check the intersection is clear"],
+      "distractors": [
+        "Yes, creep forward so you are ready.",
+        "Yes, if no cross traffic is coming."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "crosswalk-entering",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You are about to turn right. A person is stepping off the curb into the crosswalk you are turning into. What do you do?",
+      "modelAnswer": "Stop and let them cross. I do not turn until they are fully across or well clear of my path.",
+      "keyPoints": ["stop", "yield to the pedestrian", "wait until they are across"],
+      "distractors": [
+        "Turn quickly before they reach your lane.",
+        "Honk so they know you are turning."
+      ],
+      "followUp": "ped-corner-waiting",
+      "source": "laws"
+    },
+    {
+      "id": "ped-corner-waiting",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "A person is standing at the corner, facing the street, clearly about to cross. They have not stepped off yet. What do you do?",
+      "modelAnswer": "Stop before the crosswalk and let them go.",
+      "keyPoints": ["stop before the crosswalk", "let them cross"],
+      "distractors": [
+        "Keep going. They have not stepped off yet.",
+        "Slow down and wave them across while you keep rolling."
+      ],
+      "followUp": "ped-on-green",
+      "source": "laws"
+    },
+    {
+      "id": "ped-on-green",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Your light turns green, but a pedestrian is still crossing in front of you. What do you do?",
+      "modelAnswer": "Wait until they are fully across. Green does not mean go if someone is still in the crosswalk.",
+      "keyPoints": ["wait until fully across", "pedestrians still in the crosswalk have the right of way"],
+      "distractors": [
+        "Go. You have the green.",
+        "Creep forward to hurry them along."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "ped-beacon",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Yellow lights are flashing at a crosswalk in the middle of the block. What does it mean and what do you do?",
+      "modelAnswer": "Someone pressed the button to cross. Slow down, find the pedestrian, stop before the crosswalk line, and wait until they have fully crossed.",
+      "keyPoints": ["someone pressed the button", "find the pedestrian", "stop before the crosswalk", "wait until fully crossed"],
+      "distractors": [
+        "Slow down a little. Flashing yellow means caution only, no need to stop.",
+        "It is a school zone sign. Drive 25 and continue."
+      ],
+      "followUp": "pass-stopped-crosswalk",
+      "source": "laws"
+    },
+    {
+      "id": "pass-stopped-crosswalk",
+      "category": "pedestrians",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Two lanes going your way. The car in the next lane has stopped at a crosswalk. Nothing is in front of you. What do you do?",
+      "modelAnswer": "Stop too. Never pass a car that is stopped at a crosswalk. Someone may be crossing where I cannot see.",
+      "keyPoints": ["stop too", "never pass a car stopped at a crosswalk", "a pedestrian may be hidden"],
+      "distractors": [
+        "Keep going. Your lane is clear.",
+        "Change lanes behind the stopped car and wait."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "cyclist-right-turn",
+      "category": "pedestrians",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "You want to turn right. A cyclist is in the bike lane right beside you. What do you do?",
+      "modelAnswer": "Let them pass first. Then check the right mirror and right shoulder, move into the bike lane, and turn. If there is no room, wait and turn behind them.",
+      "keyPoints": ["let the cyclist pass first", "right mirror and right shoulder check", "move into the bike lane then turn"],
+      "distractors": [
+        "Speed up, get ahead of them, and turn in front.",
+        "Turn from your lane. Bike lanes are for bikes only."
+      ],
+      "followUp": "bike-lane-right",
+      "source": "lanes"
+    },
+    {
+      "id": "bike-lane-right",
+      "category": "lanes",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "There is a bike lane on your right and you need to turn right ahead. How do you set up the turn?",
+      "modelAnswer": "Within 200 feet of the turn, when it is safe: signal, right mirror, right shoulder check, merge into the bike lane, then turn from there.",
+      "keyPoints": ["enter the bike lane within 200 feet", "signal and check right shoulder", "turn from the bike lane"],
+      "distractors": [
+        "Never drive in a bike lane. Turn from the travel lane across it.",
+        "Enter the bike lane a full block early so you are ready."
+      ],
+      "followUp": "cyclist-right-turn",
+      "source": "lanes"
+    },
+    {
+      "id": "smog",
+      "category": "observation",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "You need to change lanes to the left. Walk me through it.",
+      "modelAnswer": "SMOG. Signal about 5 seconds before. Mirror, rear-view and left side. Over the shoulder, a big obvious head turn to the left. Go, smoothly, keeping my speed. Then cancel the signal.",
+      "keyPoints": ["signal about 5 seconds before", "check mirrors", "over the shoulder head check", "go smoothly", "cancel the signal"],
+      "distractors": [
+        "Check the mirror and move over. The signal is optional if nobody is near.",
+        "Signal and move over at the same moment so you do not slow traffic."
+      ],
+      "followUp": "head-check-size",
+      "source": "lanes"
+    },
+    {
+      "id": "head-check-size",
+      "category": "observation",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "The examiner marked you for traffic checks even though you looked. Why might that happen?",
+      "modelAnswer": "The head checks were too small to see. Turn the whole head, slowly and obviously, at every stop, turn and lane change, so the examiner sees it.",
+      "keyPoints": ["head checks too small", "turn the whole head", "slow and obvious", "every stop, turn and lane change"],
+      "distractors": [
+        "Examiners only count checks you say out loud.",
+        "You should only use mirrors. Turning your head is marked as a distraction."
+      ],
+      "followUp": "smog",
+      "source": "safe"
+    },
+    {
+      "id": "check-cars-not-just-people",
+      "category": "observation",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "At a stop sign, you checked the crosswalk for people. What else do you check before going?",
+      "modelAnswer": "Cars. Look left, right, left again for traffic, not just pedestrians.",
+      "keyPoints": ["check for cars", "look left, right, left"],
+      "distractors": [
+        "Nothing else. Pedestrians are all that matter at a stop sign.",
+        "Only check your rear-view mirror."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "turn-signal-distance",
+      "category": "lanes",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "How early do you signal before a turn?",
+      "modelAnswer": "About 100 feet before the turn.",
+      "keyPoints": ["about 100 feet before"],
+      "distractors": [
+        "Just as you start turning the wheel.",
+        "At least a quarter mile before."
+      ],
+      "followUp": "smog",
+      "source": "lanes"
+    },
+    {
+      "id": "wide-turn",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "You turn right from a road onto a street with two lanes going your way. Which lane do you end up in?",
+      "modelAnswer": "The nearest lane, the right-hand one. No wide turns. Change lanes later with SMOG if needed.",
+      "keyPoints": ["turn into the nearest lane", "no wide turns"],
+      "distractors": [
+        "Whichever lane is empty.",
+        "The left lane, so you have more room."
+      ],
+      "followUp": "left-turn-lane",
+      "source": "lanes"
+    },
+    {
+      "id": "left-turn-lane",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "You turn left from a one-way road onto a street with two lanes going your way. Which lane do you finish in?",
+      "modelAnswer": "The nearest lane, the left-hand one. Then change lanes later if needed.",
+      "keyPoints": ["nearest lane", "the left lane"],
+      "distractors": [
+        "The far right lane, to get out of the way.",
+        "Any lane, as long as you signal."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "limit-line",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "Where must your car be when you stop at a red light?",
+      "modelAnswer": "Behind the limit line, and never in the crosswalk.",
+      "keyPoints": ["behind the limit line", "not in the crosswalk"],
+      "distractors": [
+        "With the front bumper on the limit line.",
+        "Anywhere before the middle of the intersection."
+      ],
+      "source": "laws"
+    },
+    {
+      "id": "spacing-bins",
+      "category": "lanes",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "It is trash day. Bins line the curb on your right. Cars are parked too. Where do you drive?",
+      "modelAnswer": "Centred in my lane with about an arm's length from bins and parked cars. Clipping a bin with the mirror counts as hitting an object.",
+      "keyPoints": ["stay centred in the lane", "about an arm's length", "clipping a bin counts as hitting an object"],
+      "distractors": [
+        "Hug the right side so you stay away from oncoming traffic.",
+        "Bins do not count. Only cars matter."
+      ],
+      "followUp": "hit-object",
+      "source": "safe"
+    },
+    {
+      "id": "hit-object",
+      "category": "lanes",
+      "severity": "critical",
+      "prompt": "Your tire touches the curb while turning. Is that a big deal on the test?",
+      "modelAnswer": "Yes. Hitting a curb or any object is a critical error and an automatic fail.",
+      "keyPoints": ["yes", "hitting a curb or object is a critical error"],
+      "distractors": [
+        "No. A light touch is fine.",
+        "Only if it damages the tire."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "yellow-center-line",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "There is a solid yellow line and a broken yellow line in the centre. Which one applies to you?",
+      "modelAnswer": "The one closest to me. If the broken line is on my side, I may pass when safe. If the solid line is on my side, I may not.",
+      "keyPoints": ["the line closest to you applies", "broken on your side you may pass", "solid on your side you may not"],
+      "distractors": [
+        "The solid one always wins. Nobody can pass.",
+        "The broken one always wins. Anyone can pass."
+      ],
+      "followUp": "passing",
+      "source": "lanes"
+    },
+    {
+      "id": "passing",
+      "category": "lanes",
+      "severity": "tip",
+      "prompt": "Two-lane road. A slow car is ahead. Should you pass it on the test?",
+      "modelAnswer": "Usually no. Only pass if the yellow line on my side is broken and the road ahead is clear. On the test it is usually better not to.",
+      "keyPoints": ["only if your line is broken and the road is clear", "usually better not to pass on the test"],
+      "distractors": [
+        "Yes. Examiners like to see confident passing.",
+        "Yes, any time the oncoming lane looks empty."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "following-distance",
+      "category": "speed",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "How far behind the car ahead should you be, and how do you check?",
+      "modelAnswer": "Three seconds. When the car ahead passes a fixed point, count one thousand one, two, three. If I reach the point before three, I back off.",
+      "keyPoints": ["three seconds", "count from a fixed point", "back off if too close"],
+      "distractors": [
+        "One car length for every 30 mph.",
+        "Close enough that nobody can cut in."
+      ],
+      "followUp": "rain",
+      "source": "safe"
+    },
+    {
+      "id": "speed-posted",
+      "category": "speed",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The limit is 35. Everyone around you is doing 45. What speed do you drive?",
+      "modelAnswer": "The posted limit, 35, even if traffic is faster. More than 10 over is a serious error.",
+      "keyPoints": ["drive the posted limit", "even if traffic is faster"],
+      "distractors": [
+        "Match traffic. Going slower is dangerous.",
+        "Drive 40. Five over is always fine on the test."
+      ],
+      "followUp": "too-slow",
+      "source": "speed"
+    },
+    {
+      "id": "too-slow",
+      "category": "speed",
+      "severity": "critical",
+      "prompt": "Is driving well under the limit the safe choice on the test?",
+      "modelAnswer": "No. Driving so slowly that you hold up traffic or create a hazard is also an error. Drive at the limit when it is safe.",
+      "keyPoints": ["no", "too slow can be a hazard", "drive the limit when safe"],
+      "distractors": [
+        "Yes. Examiners never mark you for going slow.",
+        "Yes, 10 under is ideal."
+      ],
+      "source": "speed"
+    },
+    {
+      "id": "school-zone",
+      "category": "speed",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "You pass a school while kids are outside. No speed sign is posted. What is the limit?",
+      "modelAnswer": "25 mph when children are present, unless a lower limit is posted.",
+      "keyPoints": ["25 mph", "when children are present", "unless posted lower"],
+      "distractors": [
+        "35 mph, the same as the road.",
+        "15 mph at all times, day or night."
+      ],
+      "followUp": "residential-speed",
+      "source": "speed"
+    },
+    {
+      "id": "residential-speed",
+      "category": "speed",
+      "severity": "points",
+      "prompt": "Residential street, no speed sign in sight. How fast?",
+      "modelAnswer": "Usually 25 mph, unless posted otherwise.",
+      "keyPoints": ["25 mph"],
+      "distractors": [
+        "35 mph.",
+        "Whatever feels safe, up to 40."
+      ],
+      "source": "speed"
+    },
+    {
+      "id": "blind-intersection",
+      "category": "speed",
+      "severity": "points",
+      "prompt": "You approach an uncontrolled intersection where hedges block your view of the cross street. What speed and what do you do?",
+      "modelAnswer": "15 mph. Slow right down, look left, right, left, and be ready to stop.",
+      "keyPoints": ["15 mph", "look left, right, left", "be ready to stop"],
+      "distractors": [
+        "25 mph like any residential street.",
+        "Keep your speed. Uncontrolled means you have the right of way."
+      ],
+      "followUp": "uncontrolled",
+      "source": "sharing"
+    },
+    {
+      "id": "uncontrolled",
+      "category": "four-way",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "No signs, no lights at an intersection. A car is approaching from your right at the same time. Who goes?",
+      "modelAnswer": "They do. Slow down, look left, right, left, be ready to stop, and yield to a car already there or arriving at the same time from my right.",
+      "keyPoints": ["slow down and be ready to stop", "look left, right, left", "yield to the car on your right"],
+      "distractors": [
+        "You do. The car on the left goes first.",
+        "Whoever is going faster."
+      ],
+      "followUp": "four-way-same-time-right",
+      "source": "laws"
+    },
+    {
+      "id": "rr-flashing",
+      "category": "railroad",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Railroad crossing. The lights start flashing and the gates come down. What do you do?",
+      "modelAnswer": "Stop at least 15 feet from the tracks. Stay stopped until the lights stop flashing and the gates are fully up, even after the train has passed. Then look and listen both ways before crossing.",
+      "keyPoints": ["stop at least 15 feet back", "wait until lights stop and gates are fully up", "even after the train passes", "look and listen both ways"],
+      "distractors": [
+        "Cross quickly if you cannot see a train yet.",
+        "Go as soon as the train has passed, even if the gates are still rising."
+      ],
+      "followUp": "rr-gates-up",
+      "source": "sharing"
+    },
+    {
+      "id": "rr-gates-up",
+      "category": "railroad",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "The train has passed but the lights are still flashing and the gates are halfway up. Can you go?",
+      "modelAnswer": "No. Wait until the lights stop and the gates are fully up. Another train could be coming.",
+      "keyPoints": ["no", "wait for lights off and gates fully up", "another train may come"],
+      "distractors": [
+        "Yes. The train is gone.",
+        "Yes, if you drive around the gate carefully."
+      ],
+      "source": "sharing"
+    },
+    {
+      "id": "rr-backed-up",
+      "category": "railroad",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "Traffic is backed up just past the railroad tracks. The crossing lights are off. What do you do?",
+      "modelAnswer": "Wait before the tracks until there is room for my whole car on the far side. Never stop on the tracks.",
+      "keyPoints": ["wait before the tracks", "room for the whole car on the far side", "never stop on the tracks"],
+      "distractors": [
+        "Pull onto the tracks. Traffic will move soon.",
+        "Stop with your back wheels on the tracks so you are close."
+      ],
+      "source": "sharing"
+    },
+    {
+      "id": "rr-no-lights",
+      "category": "railroad",
+      "severity": "points",
+      "prompt": "Railroad crossing with no lights flashing and no gates down. What do you do?",
+      "modelAnswer": "Slow down, look and listen both ways, then cross without stopping on the tracks.",
+      "keyPoints": ["slow down", "look and listen both ways", "do not stop on the tracks"],
+      "distractors": [
+        "Always come to a full stop at every crossing.",
+        "Keep your speed. No lights means no train."
+      ],
+      "followUp": "rr-flashing",
+      "source": "sharing"
+    },
+    {
+      "id": "emergency-vehicle",
+      "category": "special",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "An ambulance with its siren on is coming up behind you. What do you do?",
+      "modelAnswer": "Signal, pull to the right edge of the road, and stop until it passes. If I am in an intersection, I clear it first, then pull over.",
+      "keyPoints": ["signal and pull to the right edge", "stop until it passes", "clear the intersection first"],
+      "distractors": [
+        "Stop right where you are, even in the intersection.",
+        "Speed up to stay ahead of it."
+      ],
+      "source": "sharing"
+    },
+    {
+      "id": "school-bus",
+      "category": "special",
+      "severity": "critical",
+      "highRisk": true,
+      "prompt": "A school bus ahead has its red lights flashing. What do you do?",
+      "modelAnswer": "Stop and stay stopped until the red lights turn off. Oncoming traffic must stop too, unless it is on the other side of a divided road or a road with two or more lanes each way.",
+      "keyPoints": ["stop", "stay stopped until the lights turn off", "oncoming traffic stops too unless divided"],
+      "distractors": [
+        "Slow to 10 mph and pass carefully.",
+        "Stop, then go once the kids are off the road even if the lights are still flashing."
+      ],
+      "source": "sharing"
+    },
+    {
+      "id": "rain-headlights",
+      "category": "special",
+      "severity": "points",
+      "prompt": "It starts raining and your wipers are running continuously. What else must you do?",
+      "modelAnswer": "Turn on the headlights. California requires them when wipers are in continuous use. Also slow down and leave more following distance.",
+      "keyPoints": ["headlights on", "slow down", "more following distance"],
+      "distractors": [
+        "Turn on the hazard lights.",
+        "Nothing else. Wipers are enough."
+      ],
+      "source": "safe"
+    },
+    {
+      "id": "rain",
+      "category": "special",
+      "severity": "tip",
+      "prompt": "Wet roads. What changes about your following distance?",
+      "modelAnswer": "Increase it beyond three seconds and slow down. Stopping takes longer on wet roads.",
+      "keyPoints": ["more than three seconds", "slow down"],
+      "distractors": [
+        "Nothing. Three seconds is always enough.",
+        "Follow closer so you can use the car ahead's tracks."
+      ],
+      "followUp": "rain-headlights",
+      "source": "safe"
+    },
+    {
+      "id": "freeway-merge",
+      "category": "special",
+      "severity": "points",
+      "prompt": "The examiner asks you to get on the freeway. How do you merge?",
+      "modelAnswer": "Use the on-ramp to reach freeway speed. Signal, check mirrors and look over the left shoulder, find a gap, and merge smoothly. Do not stop on the ramp unless forced to.",
+      "keyPoints": ["build up to freeway speed on the ramp", "signal and look over the left shoulder", "merge smoothly into a gap"],
+      "distractors": [
+        "Stop at the end of the ramp and wait for a big gap.",
+        "Merge slowly at 40 so traffic can let you in."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "pull-over",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "pullover",
+      "highRisk": true,
+      "prompt": "Pull over to the curb on the right, just past that driveway. Walk me through it.",
+      "modelAnswer": "SMOG to the right: signal, right mirror, right shoulder check, go. Stop smoothly within 18 inches of the curb without touching it. Then set the parking brake if asked.",
+      "keyPoints": ["signal right", "right mirror and right shoulder check", "within 18 inches of the curb", "do not touch the curb"],
+      "distractors": [
+        "Brake and steer to the curb. No signal needed for parking.",
+        "Stop with your tire against the curb so you are close enough."
+      ],
+      "followUp": "pull-out",
+      "source": "parking"
+    },
+    {
+      "id": "pull-out",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "pullover",
+      "highRisk": true,
+      "prompt": "Now pull back out into traffic from the curb. What do you do?",
+      "modelAnswer": "Signal left, check the left mirror, look over the left shoulder, then go when there is a safe gap.",
+      "keyPoints": ["signal left", "left mirror", "left shoulder check", "go on a safe gap"],
+      "distractors": [
+        "Pull out quickly. Cars behind will slow down.",
+        "Check the rear-view mirror only, then go."
+      ],
+      "source": "parking"
+    },
+    {
+      "id": "backing",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "backing",
+      "highRisk": true,
+      "prompt": "Back up straight along the curb for about three car lengths. How do you do it?",
+      "modelAnswer": "Turn and look back over my right shoulder through the rear window, not only the camera. Reverse slowly and straight, staying close to the curb, for about three car lengths.",
+      "keyPoints": ["look back over your right shoulder", "through the rear window", "slowly and straight", "close to the curb", "about three car lengths"],
+      "distractors": [
+        "Watch the backup camera the whole time. That is what it is for.",
+        "Use the side mirrors only and reverse at a steady jog."
+      ],
+      "followUp": "pull-out",
+      "source": "parking"
+    },
+    {
+      "id": "return-dmv",
+      "category": "maneuvers",
+      "severity": "points",
+      "phase": "return",
+      "prompt": "Head back into the DMV lot and park. What do you do?",
+      "modelAnswer": "Signal early and slow down. Yield to pedestrians on the sidewalk. Drive slowly through the lot. Park where the examiner says and set the parking brake.",
+      "keyPoints": ["signal early and slow down", "yield to pedestrians on the sidewalk", "drive slowly through the lot", "park where told", "set the parking brake"],
+      "distractors": [
+        "The test is over once you see the lot. Relax and park anywhere.",
+        "Turn in quickly so you do not hold up traffic behind you."
+      ],
+      "source": "parking"
+    },
+    {
+      "id": "lane-change-cancel",
+      "category": "observation",
+      "severity": "tip",
+      "prompt": "You finished a lane change. What is the last thing to do?",
+      "modelAnswer": "Make sure the turn signal has cancelled. Turn it off by hand if not.",
+      "keyPoints": ["cancel the signal"],
+      "distractors": [
+        "Leave it on so the car behind knows where you went.",
+        "Flash the hazards to say thank you."
+      ],
+      "source": "lanes"
+    },
+    {
+      "id": "turn-head-check",
+      "category": "observation",
+      "severity": "points",
+      "highRisk": true,
+      "prompt": "You are turning right at an intersection. Which checks does the examiner want to see?",
+      "modelAnswer": "Signal early, check the right mirror, a big right shoulder check for bikes, then look left, right, left and check the crosswalk before turning.",
+      "keyPoints": ["right mirror", "right shoulder check", "look left, right, left", "check the crosswalk"],
+      "distractors": [
+        "Just look left for traffic. That is the only danger on a right turn.",
+        "Check the rear-view mirror, then turn."
+      ],
+      "followUp": "head-check-size",
+      "source": "lanes"
+    },
+    {
+      "id": "examiner-instruction",
+      "category": "test-day",
+      "severity": "tip",
+      "prompt": "The examiner says: left at the next street, then the first right. What do you do with that?",
+      "modelAnswer": "Repeat it back, then plan my lanes early: get into the left lane in good time with SMOG, and know the right turn is coming.",
+      "keyPoints": ["repeat it back", "plan lanes early"],
+      "distractors": [
+        "Wait until you reach the street before thinking about lanes.",
+        "Turn at the first opening you see, to show you are listening."
+      ],
+      "source": "testing"
+    },
+    {
+      "id": "center-turn-lane",
+      "category": "lanes",
+      "severity": "points",
+      "prompt": "There is a centre lane marked for left turns from both directions. How do you use it?",
+      "modelAnswer": "Only for starting or finishing a left turn. Signal, check mirrors and shoulder, move in just before the turn, and do not drive along it to pass.",
+      "keyPoints": ["only for left turns", "move in just before the turn", "do not use it to pass or travel"],
+      "distractors": [
+        "Use it as a passing lane when traffic is slow.",
+        "Drive in it for as long as you like before turning."
+      ],
+      "source": "lanes"
+    }
+  ]
+}
